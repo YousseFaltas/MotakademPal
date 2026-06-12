@@ -1,0 +1,20 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 675" role="img" aria-labelledby="title desc">
+  <title id="title">Church service day</title>
+  <desc id="desc">Warm stylized service bags, hearts, and a Coptic cross in a church hall.</desc>
+  <defs>
+    <linearGradient id="bg" x1="0" x2="1" y1="0" y2="1">
+      <stop offset="0" stop-color="#321326"/>
+      <stop offset=".55" stop-color="#7c243f"/>
+      <stop offset="1" stop-color="#d9a441"/>
+    </linearGradient>
+  </defs>
+  <rect width="1200" height="675" fill="url(#bg)"/>
+  <circle cx="1020" cy="130" r="110" fill="#ffe8a3" opacity=".18"/>
+  <path d="M592 130v-70M560 95h64" stroke="#ffe8a3" stroke-width="18" stroke-linecap="round"/>
+  <rect x="180" y="295" width="250" height="230" rx="34" fill="#efe7d2"/>
+  <rect x="480" y="255" width="250" height="270" rx="34" fill="#f7f0dc"/>
+  <rect x="780" y="305" width="240" height="220" rx="34" fill="#efe7d2"/>
+  <path d="M245 295c0-80 120-80 120 0M545 255c0-86 120-86 120 0M842 305c0-72 116-72 116 0" fill="none" stroke="#2a3144" stroke-width="18" stroke-linecap="round"/>
+  <path d="M600 390c-50-45-112 25-52 80l52 44 52-44c60-55-2-125-52-80z" fill="#b43d4f"/>
+  <path d="M0 570c225-65 430-68 650-18 180 42 350 41 550-10v133H0z" fill="#071226" opacity=".45"/>
+</svg>

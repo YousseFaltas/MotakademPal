@@ -1,0 +1,405 @@
+<!DOCTYPE html>
+
+<html class="dark" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Captain View - Motakadem</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Sora:wght@600;700;800&amp;family=Hanken+Grotesk:wght@400&amp;family=JetBrains+Mono:wght@500&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    "colors": {
+                        "inverse-primary": "#006875",
+                        "background": "#0b1326",
+                        "surface-container-high": "#222a3d",
+                        "outline": "#849396",
+                        "secondary-container": "#0050ee",
+                        "on-primary-fixed": "#001f24",
+                        "on-tertiary-fixed": "#20005f",
+                        "primary-container": "#00e5ff",
+                        "on-primary-container": "#00626e",
+                        "outline-variant": "#3b494c",
+                        "inverse-surface": "#dae2fd",
+                        "surface-bright": "#31394d",
+                        "tertiary-fixed-dim": "#cdbdff",
+                        "tertiary-fixed": "#e8deff",
+                        "on-tertiary": "#370096",
+                        "on-primary": "#00363d",
+                        "on-secondary-fixed": "#001550",
+                        "on-secondary-container": "#d4dbff",
+                        "secondary": "#b6c4ff",
+                        "on-error": "#690005",
+                        "on-error-container": "#ffdad6",
+                        "on-surface": "#dae2fd",
+                        "error-container": "#93000a",
+                        "secondary-fixed-dim": "#b6c4ff",
+                        "error": "#ffb4ab",
+                        "on-tertiary-container": "#622be5",
+                        "on-primary-fixed-variant": "#004f58",
+                        "on-background": "#dae2fd",
+                        "surface-variant": "#2d3449",
+                        "surface-container-lowest": "#060e20",
+                        "tertiary": "#f1e9ff",
+                        "on-tertiary-fixed-variant": "#4f00d0",
+                        "surface-tint": "#00daf3",
+                        "primary-fixed-dim": "#00daf3",
+                        "on-surface-variant": "#bac9cc",
+                        "inverse-on-surface": "#283044",
+                        "surface-container-highest": "#2d3449",
+                        "tertiary-container": "#d6c9ff",
+                        "primary-fixed": "#9cf0ff",
+                        "on-secondary": "#002780",
+                        "primary": "#c3f5ff",
+                        "surface-dim": "#0b1326",
+                        "secondary-fixed": "#dce1ff",
+                        "on-secondary-fixed-variant": "#003ab3",
+                        "surface-container-low": "#131b2e",
+                        "surface-container": "#171f33",
+                        "surface": "#0b1326"
+                    },
+                    "borderRadius": {
+                        "DEFAULT": "0.25rem",
+                        "lg": "0.5rem",
+                        "xl": "0.75rem",
+                        "full": "9999px"
+                    },
+                    "spacing": {
+                        "stack-md": "24px",
+                        "container-margin": "24px",
+                        "base": "8px",
+                        "stack-sm": "12px",
+                        "gutter": "16px",
+                        "stack-lg": "48px"
+                    },
+                    "fontFamily": {
+                        "label-sm": ["JetBrains Mono"],
+                        "body-lg": ["Hanken Grotesk"],
+                        "title-md": ["Sora"],
+                        "display-lg": ["Sora"],
+                        "headline-lg-mobile": ["Sora"],
+                        "headline-lg": ["Sora"],
+                        "body-md": ["Hanken Grotesk"]
+                    },
+                    "fontSize": {
+                        "label-sm": ["12px", { "lineHeight": "1.0", "letterSpacing": "0.05em", "fontWeight": "500" }],
+                        "body-lg": ["18px", { "lineHeight": "1.6", "fontWeight": "400" }],
+                        "title-md": ["20px", { "lineHeight": "1.4", "fontWeight": "600" }],
+                        "display-lg": ["48px", { "lineHeight": "1.1", "letterSpacing": "-0.02em", "fontWeight": "800" }],
+                        "headline-lg-mobile": ["24px", { "lineHeight": "1.2", "fontWeight": "700" }],
+                        "headline-lg": ["32px", { "lineHeight": "1.2", "fontWeight": "700" }],
+                        "body-md": ["16px", { "lineHeight": "1.6", "fontWeight": "400" }]
+                    }
+                }
+            }
+        }
+    </script>
+<style>
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+        }
+        .material-symbols-outlined.fill {
+            font-variation-settings: 'FILL' 1, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+        }
+        .glass-panel {
+            background: rgba(34, 42, 61, 0.15);
+            backdrop-filter: blur(20px);
+            -webkit-backdrop-filter: blur(20px);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+        }
+        .glass-card {
+            background: linear-gradient(145deg, rgba(34, 42, 61, 0.4) 0%, rgba(23, 31, 51, 0.2) 100%);
+            backdrop-filter: blur(20px);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+        }
+        .glow-cyan {
+            box-shadow: 0 0 20px rgba(0, 229, 255, 0.15);
+        }
+        .text-gradient-cyan {
+            background: linear-gradient(90deg, #00e5ff 0%, #9cf0ff 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+        .bg-gradient-primary {
+            background: linear-gradient(90deg, #0050ee 0%, #00e5ff 100%);
+        }
+    </style>
+</head>
+<body class="bg-background text-on-background font-body-md min-h-screen flex overflow-hidden">
+<!-- NavigationDrawer (Shared Component) -->
+<nav class="hidden md:flex flex-col h-full w-80 fixed left-0 top-0 z-[60] bg-surface-container dark:bg-surface-container-high backdrop-blur-lg border-r border-outline-variant/30 shadow-2xl py-stack-md transition-all duration-300 ease-in-out">
+<!-- Header -->
+<div class="px-container-margin mb-stack-md flex items-center gap-4">
+<div class="w-12 h-12 rounded-full overflow-hidden border-2 border-primary-container">
+<img alt="Leader Mina" class="w-full h-full object-cover" data-alt="A portrait of a Coptic scout service leader with a professional and approachable expression, lit with a subtle blue neon edge light in a dark tech-inspired studio setting. The overall mood is confident and authoritative." src="https://lh3.googleusercontent.com/aida-public/AB6AXuCfuuKOWT3EDSdy6OW8pI0Nzy_Oxn0MiSSfCVwdMQYc5Yuui9QtYsHQE9LwQEM80YvynqozvbNDYqvBY6_0cPLIeAwtryMrn2hBJYA_qFzQC-G0Air-Gu_3utAiIN9zHjEqwL-tog6LIJWynH7lQ0GvsNcGXuNPhhxxvyJhgnUC3KhUrjMLOhJ6Dx5ZKXtUcljP_G3WQgdPvWSf3irI4FfR9A7-WoUrRoNobCkBx97smw6i9iBuvayPJTVOjLpCvMHjRjg6dQDu7gs"/>
+</div>
+<div>
+<h2 class="font-title-md text-title-md text-primary dark:text-primary-fixed">Leader Mina</h2>
+<p class="font-label-sm text-label-sm text-on-surface-variant">Senior Scout Leader</p>
+<p class="font-label-sm text-label-sm text-outline-variant mt-1">Coptic Parish Team</p>
+</div>
+</div>
+<!-- Links -->
+<div class="flex-1 flex flex-col gap-2 px-2">
+<!-- Active: Captain Dashboard -->
+<a class="flex items-center gap-3 px-4 py-3 bg-secondary-container text-on-secondary-container rounded-lg mx-2 my-1 font-title-md text-title-md font-bold shadow-glow hover:scale-105 transition-transform duration-200" href="#">
+<span class="material-symbols-outlined fill">dashboard</span>
+                Captain Dashboard
+            </a>
+<a class="flex items-center gap-3 px-4 py-3 text-on-surface-variant hover:bg-surface-variant/50 rounded-lg mx-2 my-1 font-title-md text-title-md hover:translate-x-1 transition-transform" href="#">
+<span class="material-symbols-outlined">add_circle</span>
+                Event Studio
+            </a>
+<a class="flex items-center gap-3 px-4 py-3 text-on-surface-variant hover:bg-surface-variant/50 rounded-lg mx-2 my-1 font-title-md text-title-md hover:translate-x-1 transition-transform" href="#">
+<span class="material-symbols-outlined">format_list_bulleted</span>
+                Document Review
+            </a>
+<a class="flex items-center gap-3 px-4 py-3 text-on-surface-variant hover:bg-surface-variant/50 rounded-lg mx-2 my-1 font-title-md text-title-md hover:translate-x-1 transition-transform" href="#">
+<span class="material-symbols-outlined">settings</span>
+                Settings
+            </a>
+</div>
+<!-- Brand Footer -->
+<div class="px-container-margin mt-auto">
+<h1 class="font-display-lg text-headline-lg tracking-tighter text-primary dark:text-primary-fixed-dim opacity-50">Motakadem</h1>
+</div>
+</nav>
+<!-- Mobile TopAppBar (Shared Component) -->
+<header class="md:hidden fixed top-0 w-full z-50 bg-background/80 dark:bg-background/80 backdrop-blur-xl border-b border-white/10 dark:border-outline-variant/20 shadow-[0_0_20px_rgba(0,229,255,0.1)] flex justify-between items-center px-container-margin h-16 max-w-screen-xl mx-auto transition-transform duration-200">
+<div class="flex items-center gap-3">
+<div class="w-8 h-8 rounded-full overflow-hidden border border-primary-container">
+<img alt="User Profile Avatar" class="w-full h-full object-cover" data-alt="A portrait of a male scout leader with a professional and approachable expression, lit with a subtle blue neon edge light in a dark tech-inspired studio setting. The overall mood is confident and authoritative." src="https://lh3.googleusercontent.com/aida-public/AB6AXuACEpmBYc0cAtyX7utLONX1AnYCs_FJXgTBxamOttter6_otiENTJpk2W9P-bI6ot-vxajEDUhCyNIgQt2w_nxIQjPZ8Uu38N-I5JDb9aRRfkF20elPBAIfOcltGuYeNyUZAicfPQH36v-oor6LiJ5_TbT_V0zkd2582FYjCAPzeCY7Ml0j0-lCAzx-hXTMmaZxHX2Qkr6BprahMmgPCdZD1iV3yHElsVOzvlPpIYkf7VWMB9DAU7opq8s7G2JjBwOn9KOLnZSZBOQ"/>
+</div>
+<h1 class="font-display-lg text-headline-lg-mobile tracking-tighter text-primary dark:text-primary-fixed-dim">Motakadem</h1>
+</div>
+<button class="text-primary dark:text-primary p-2 hover:scale-105 active:scale-95 duration-150 ease-in-out">
+<span class="material-symbols-outlined">settings</span>
+</button>
+</header>
+<!-- Main Content Area -->
+<main class="flex-1 md:ml-80 pt-20 md:pt-8 pb-24 md:pb-8 px-container-margin h-screen overflow-y-auto">
+<div class="max-w-7xl mx-auto space-y-stack-md">
+<!-- Page Header -->
+<div class="flex flex-col md:flex-row md:items-end justify-between gap-4">
+<div>
+<h1 class="font-display-lg text-display-lg text-gradient-cyan mb-2">Command Center</h1>
+<p class="font-body-lg text-body-lg text-on-surface-variant">Welcome back, Leader Mina. Here's the current service status.</p>
+</div>
+<div class="flex gap-3">
+<button class="bg-surface-variant hover:bg-surface-container-highest text-on-surface px-4 py-2 rounded-lg font-label-sm text-label-sm transition-colors border border-outline-variant/50 flex items-center gap-2">
+<span class="material-symbols-outlined text-[18px]">download</span>
+                        Export Report
+                    </button>
+<button class="bg-gradient-primary hover:scale-105 text-white px-4 py-2 rounded-lg font-label-sm text-label-sm transition-transform shadow-[0_0_15px_rgba(0,229,255,0.3)] flex items-center gap-2">
+<span class="material-symbols-outlined text-[18px]">add</span>
+                        New Event
+                    </button>
+</div>
+</div>
+<!-- Metric Cards (Bento Grid) -->
+<div class="grid grid-cols-1 md:grid-cols-3 gap-gutter">
+<!-- Total Youth -->
+<div class="glass-card rounded-xl p-stack-sm flex flex-col justify-between h-32 relative overflow-hidden group">
+<div class="absolute -right-4 -top-4 w-24 h-24 bg-primary-container/10 rounded-full blur-xl group-hover:bg-primary-container/20 transition-colors"></div>
+<div class="flex justify-between items-start z-10">
+<span class="font-label-sm text-label-sm text-outline uppercase tracking-wider">Total Youth</span>
+<span class="material-symbols-outlined text-primary-container">groups</span>
+</div>
+<div class="z-10">
+<span class="font-display-lg text-headline-lg text-on-surface">142</span>
+<span class="font-label-sm text-label-sm text-primary-fixed ml-2">+12 this month</span>
+</div>
+</div>
+<!-- Upcoming RSVPs -->
+<div class="glass-card rounded-xl p-stack-sm flex flex-col justify-between h-32 relative overflow-hidden group">
+<div class="absolute -right-4 -top-4 w-24 h-24 bg-secondary-container/10 rounded-full blur-xl group-hover:bg-secondary-container/20 transition-colors"></div>
+<div class="flex justify-between items-start z-10">
+<span class="font-label-sm text-label-sm text-outline uppercase tracking-wider">Upcoming RSVPs</span>
+<span class="material-symbols-outlined text-secondary">event_available</span>
+</div>
+<div class="z-10">
+<span class="font-display-lg text-headline-lg text-on-surface">87%</span>
+<span class="font-label-sm text-label-sm text-secondary-fixed ml-2">Church Training</span>
+</div>
+</div>
+<!-- Notebook Consistency -->
+<div class="glass-card rounded-xl p-stack-sm flex flex-col justify-between h-32 relative overflow-hidden group border-l-2 border-l-primary-container">
+<div class="absolute inset-0 bg-gradient-to-r from-primary-container/5 to-transparent"></div>
+<div class="flex justify-between items-start z-10">
+<span class="font-label-sm text-label-sm text-outline uppercase tracking-wider">Notebook Consistency</span>
+<span class="material-symbols-outlined text-primary-fixed">auto_stories</span>
+</div>
+<div class="z-10 flex items-end gap-4">
+<div>
+<span class="font-display-lg text-headline-lg text-on-surface">92</span>
+<span class="font-label-sm text-label-sm text-outline-variant">/100</span>
+</div>
+<!-- Micro Activity Graph -->
+<div class="flex gap-1 mb-2">
+<div class="w-2 h-4 bg-primary-container/30 rounded-sm"></div>
+<div class="w-2 h-6 bg-primary-container/60 rounded-sm"></div>
+<div class="w-2 h-5 bg-primary-container/40 rounded-sm"></div>
+<div class="w-2 h-8 bg-primary-container rounded-sm shadow-[0_0_8px_rgba(0,229,255,0.5)]"></div>
+</div>
+</div>
+</div>
+</div>
+<!-- Scout Roster Data Table Container -->
+<div class="glass-card rounded-xl flex flex-col overflow-hidden">
+<!-- Toolbar -->
+<div class="p-stack-sm border-b border-outline-variant/30 flex flex-col sm:flex-row justify-between items-center gap-4 bg-surface-container-high/50">
+<h3 class="font-title-md text-title-md text-on-surface">Active Roster</h3>
+<div class="flex gap-3 w-full sm:w-auto">
+<div class="relative w-full sm:w-64">
+<span class="material-symbols-outlined absolute left-3 top-1/2 -translate-y-1/2 text-outline text-[20px]">search</span>
+<input class="w-full bg-surface-dim border border-outline-variant/50 rounded-lg py-2 pl-10 pr-4 font-body-md text-body-md text-on-surface placeholder-outline focus:outline-none focus:border-primary-container focus:ring-1 focus:ring-primary-container transition-colors" placeholder="Search scouts..." type="text"/>
+</div>
+<button class="bg-surface-variant hover:bg-surface-bright p-2 rounded-lg border border-outline-variant/50 text-on-surface transition-colors flex items-center justify-center">
+<span class="material-symbols-outlined">filter_list</span>
+</button>
+</div>
+</div>
+<!-- Table -->
+<div class="overflow-x-auto">
+<table class="w-full text-left border-collapse">
+<thead>
+<tr class="bg-surface-dim/50 border-b border-outline-variant/30">
+<th class="p-4 font-label-sm text-label-sm text-outline font-medium">Scout Name</th>
+<th class="p-4 font-label-sm text-label-sm text-outline font-medium">Rank/Role</th>
+<th class="p-4 font-label-sm text-label-sm text-outline font-medium">Attendance</th>
+<th class="p-4 font-label-sm text-label-sm text-outline font-medium">Progress</th>
+<th class="p-4 font-label-sm text-label-sm text-outline font-medium text-right">Actions</th>
+</tr>
+</thead>
+<tbody class="divide-y divide-outline-variant/20">
+<!-- Row 1 -->
+<tr class="hover:bg-surface-container-high/30 transition-colors group cursor-pointer">
+<td class="p-4">
+<div class="flex items-center gap-3">
+<div class="w-8 h-8 rounded-full bg-secondary-container/20 border border-secondary text-secondary flex items-center justify-center font-title-md text-[14px]">YA</div>
+<span class="font-body-md text-body-md text-on-surface font-medium">Yousef Al-Farsi</span>
+</div>
+</td>
+<td class="p-4">
+<span class="inline-flex items-center px-2 py-1 rounded bg-secondary-container/20 text-secondary-fixed text-[10px] font-label-sm font-bold tracking-wider border border-secondary-container/50">PATROL LEADER</span>
+</td>
+<td class="p-4">
+<span class="font-body-md text-body-md text-primary-fixed">95%</span>
+</td>
+<td class="p-4 w-48">
+<div class="flex items-center gap-2">
+<div class="flex-1 h-2 bg-surface-dim rounded-full overflow-hidden border border-outline-variant/30">
+<div class="h-full bg-primary-container shadow-[0_0_10px_rgba(0,229,255,0.5)] w-[85%]"></div>
+</div>
+<span class="font-label-sm text-label-sm text-outline">Lvl 4</span>
+</div>
+</td>
+<td class="p-4 text-right">
+<button class="text-outline hover:text-primary-container transition-colors opacity-0 group-hover:opacity-100 p-1">
+<span class="material-symbols-outlined">more_vert</span>
+</button>
+</td>
+</tr>
+<!-- Row 2 -->
+<tr class="hover:bg-surface-container-high/30 transition-colors group cursor-pointer">
+<td class="p-4">
+<div class="flex items-center gap-3">
+<div class="w-8 h-8 rounded-full bg-tertiary-container/20 border border-tertiary text-tertiary flex items-center justify-center font-title-md text-[14px]">SM</div>
+<span class="font-body-md text-body-md text-on-surface font-medium">Sami Mansour</span>
+</div>
+</td>
+<td class="p-4">
+<span class="inline-flex items-center px-2 py-1 rounded bg-surface-variant text-on-surface-variant text-[10px] font-label-sm font-bold tracking-wider border border-outline-variant/50">SCOUT</span>
+</td>
+<td class="p-4">
+<span class="font-body-md text-body-md text-on-surface-variant">78%</span>
+</td>
+<td class="p-4 w-48">
+<div class="flex items-center gap-2">
+<div class="flex-1 h-2 bg-surface-dim rounded-full overflow-hidden border border-outline-variant/30">
+<div class="h-full bg-secondary-fixed w-[45%]"></div>
+</div>
+<span class="font-label-sm text-label-sm text-outline">Lvl 2</span>
+</div>
+</td>
+<td class="p-4 text-right">
+<button class="text-outline hover:text-primary-container transition-colors opacity-0 group-hover:opacity-100 p-1">
+<span class="material-symbols-outlined">more_vert</span>
+</button>
+</td>
+</tr>
+<!-- Row 3 -->
+<tr class="hover:bg-surface-container-high/30 transition-colors group cursor-pointer">
+<td class="p-4">
+<div class="flex items-center gap-3">
+<div class="w-8 h-8 rounded-full bg-error-container/20 border border-error text-error flex items-center justify-center font-title-md text-[14px]">KN</div>
+<span class="font-body-md text-body-md text-on-surface font-medium">Khalid Naser</span>
+</div>
+</td>
+<td class="p-4">
+<span class="inline-flex items-center px-2 py-1 rounded bg-surface-variant text-on-surface-variant text-[10px] font-label-sm font-bold tracking-wider border border-outline-variant/50">SCOUT</span>
+</td>
+<td class="p-4">
+<span class="font-body-md text-body-md text-error">42%</span>
+</td>
+<td class="p-4 w-48">
+<div class="flex items-center gap-2">
+<div class="flex-1 h-2 bg-surface-dim rounded-full overflow-hidden border border-outline-variant/30">
+<div class="h-full bg-outline w-[15%]"></div>
+</div>
+<span class="font-label-sm text-label-sm text-outline">Lvl 1</span>
+</div>
+</td>
+<td class="p-4 text-right">
+<button class="text-outline hover:text-primary-container transition-colors opacity-0 group-hover:opacity-100 p-1">
+<span class="material-symbols-outlined">more_vert</span>
+</button>
+</td>
+</tr>
+</tbody>
+</table>
+</div>
+<!-- Pagination Footer -->
+<div class="p-4 border-t border-outline-variant/30 bg-surface-dim/30 flex justify-between items-center">
+<span class="font-label-sm text-label-sm text-outline">Showing 1-3 of 142</span>
+<div class="flex gap-2">
+<button class="p-1 text-outline hover:text-on-surface transition-colors disabled:opacity-50" disabled="">
+<span class="material-symbols-outlined">chevron_left</span>
+</button>
+<button class="p-1 text-outline hover:text-on-surface transition-colors">
+<span class="material-symbols-outlined">chevron_right</span>
+</button>
+</div>
+</div>
+</div>
+</div>
+</main>
+<!-- Mobile BottomNavBar (Shared Component) - Suppressed per rules: Desktop focused managerial view, BottomNav is for top-level app destination, not dashboard sub-views unless acting as primary nav on mobile. We'll include it for the mobile layout fallback but keep it semantic. -->
+<nav class="md:hidden fixed bottom-0 left-0 w-full flex justify-around items-center px-4 py-3 pb-safe bg-surface-container-lowest/90 dark:bg-surface-container-lowest/90 backdrop-blur-2xl rounded-t-xl border-t border-white/10 shadow-[0_-4px_24px_rgba(0,0,0,0.4)] z-50">
+<a class="flex flex-col items-center justify-center text-outline dark:text-outline-variant hover:text-primary transition-colors tap-highlight-transparent active:scale-90" href="#">
+<span class="material-symbols-outlined">grid_view</span>
+<span class="font-label-sm text-label-sm mt-1">Feed</span>
+</a>
+<a class="flex flex-col items-center justify-center text-outline dark:text-outline-variant hover:text-primary transition-colors tap-highlight-transparent active:scale-90" href="#">
+<span class="material-symbols-outlined">event</span>
+<span class="font-label-sm text-label-sm mt-1">Events</span>
+</a>
+<a class="flex flex-col items-center justify-center text-outline dark:text-outline-variant hover:text-primary transition-colors tap-highlight-transparent active:scale-90" href="#">
+<span class="material-symbols-outlined">auto_stories</span>
+<span class="font-label-sm text-label-sm mt-1">Notebook</span>
+</a>
+<!-- Active Tab: Managerial View relates closely to Roster/People management -->
+<a class="flex flex-col items-center justify-center bg-secondary-container/20 text-primary-container dark:text-primary-fixed rounded-full px-4 py-1 shadow-[0_0_15px_rgba(0,229,255,0.3)] hover:text-primary transition-colors tap-highlight-transparent active:scale-90" href="#">
+<span class="material-symbols-outlined fill">group</span>
+<span class="font-label-sm text-label-sm mt-1">Roster</span>
+</a>
+<a class="flex flex-col items-center justify-center text-outline dark:text-outline-variant hover:text-primary transition-colors tap-highlight-transparent active:scale-90" href="#">
+<span class="material-symbols-outlined">person</span>
+<span class="font-label-sm text-label-sm mt-1">Profile</span>
+</a>
+</nav>
+</body></html>

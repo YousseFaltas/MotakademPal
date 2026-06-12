@@ -1,0 +1,428 @@
+<!DOCTYPE html>
+
+<html class="dark" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Motakadem - Scout View</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com" rel="preconnect"/>
+<link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
+<link href="https://fonts.googleapis.com/css2?family=Hanken+Grotesk:ital,wght@0,100..900;1,100..900&amp;family=JetBrains+Mono:ital,wght@0,100..800;1,100..800&amp;family=Sora:wght@100..800&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+        tailwind.config = {
+          darkMode: "class",
+          theme: {
+            extend: {
+              "colors": {
+                      "inverse-primary": "#006875",
+                      "background": "#0b1326",
+                      "surface-container-high": "#222a3d",
+                      "outline": "#849396",
+                      "secondary-container": "#0050ee",
+                      "on-primary-fixed": "#001f24",
+                      "on-tertiary-fixed": "#20005f",
+                      "primary-container": "#00e5ff",
+                      "on-primary-container": "#00626e",
+                      "outline-variant": "#3b494c",
+                      "inverse-surface": "#dae2fd",
+                      "surface-bright": "#31394d",
+                      "tertiary-fixed-dim": "#cdbdff",
+                      "tertiary-fixed": "#e8deff",
+                      "on-tertiary": "#370096",
+                      "on-primary": "#00363d",
+                      "on-secondary-fixed": "#001550",
+                      "on-secondary-container": "#d4dbff",
+                      "secondary": "#b6c4ff",
+                      "on-error": "#690005",
+                      "on-error-container": "#ffdad6",
+                      "on-surface": "#dae2fd",
+                      "error-container": "#93000a",
+                      "secondary-fixed-dim": "#b6c4ff",
+                      "error": "#ffb4ab",
+                      "on-tertiary-container": "#622be5",
+                      "on-primary-fixed-variant": "#004f58",
+                      "on-background": "#dae2fd",
+                      "surface-variant": "#2d3449",
+                      "surface-container-lowest": "#060e20",
+                      "tertiary": "#f1e9ff",
+                      "on-tertiary-fixed-variant": "#4f00d0",
+                      "surface-tint": "#00daf3",
+                      "primary-fixed-dim": "#00daf3",
+                      "on-surface-variant": "#bac9cc",
+                      "inverse-on-surface": "#283044",
+                      "surface-container-highest": "#2d3449",
+                      "tertiary-container": "#d6c9ff",
+                      "primary-fixed": "#9cf0ff",
+                      "on-secondary": "#002780",
+                      "primary": "#c3f5ff",
+                      "surface-dim": "#0b1326",
+                      "secondary-fixed": "#dce1ff",
+                      "on-secondary-fixed-variant": "#003ab3",
+                      "surface-container-low": "#131b2e",
+                      "surface-container": "#171f33",
+                      "surface": "#0b1326"
+              },
+              "borderRadius": {
+                      "DEFAULT": "0.25rem",
+                      "lg": "0.5rem",
+                      "xl": "0.75rem",
+                      "full": "9999px"
+              },
+              "spacing": {
+                      "stack-md": "24px",
+                      "container-margin": "24px",
+                      "base": "8px",
+                      "stack-sm": "12px",
+                      "gutter": "16px",
+                      "stack-lg": "48px"
+              },
+              "fontFamily": {
+                      "label-sm": [
+                              "JetBrains Mono"
+                      ],
+                      "body-lg": [
+                              "Hanken Grotesk"
+                      ],
+                      "title-md": [
+                              "Sora"
+                      ],
+                      "display-lg": [
+                              "Sora"
+                      ],
+                      "headline-lg-mobile": [
+                              "Sora"
+                      ],
+                      "headline-lg": [
+                              "Sora"
+                      ],
+                      "body-md": [
+                              "Hanken Grotesk"
+                      ]
+              },
+              "fontSize": {
+                      "label-sm": [
+                              "12px",
+                              {
+                                      "lineHeight": "1.0",
+                                      "letterSpacing": "0.05em",
+                                      "fontWeight": "500"
+                              }
+                      ],
+                      "body-lg": [
+                              "18px",
+                              {
+                                      "lineHeight": "1.6",
+                                      "fontWeight": "400"
+                              }
+                      ],
+                      "title-md": [
+                              "20px",
+                              {
+                                      "lineHeight": "1.4",
+                                      "fontWeight": "600"
+                              }
+                      ],
+                      "display-lg": [
+                              "48px",
+                              {
+                                      "lineHeight": "1.1",
+                                      "letterSpacing": "-0.02em",
+                                      "fontWeight": "800"
+                              }
+                      ],
+                      "headline-lg-mobile": [
+                              "24px",
+                              {
+                                      "lineHeight": "1.2",
+                                      "fontWeight": "700"
+                              }
+                      ],
+                      "headline-lg": [
+                              "32px",
+                              {
+                                      "lineHeight": "1.2",
+                                      "fontWeight": "700"
+                              }
+                      ],
+                      "body-md": [
+                              "16px",
+                              {
+                                      "lineHeight": "1.6",
+                                      "fontWeight": "400"
+                              }
+                      ]
+              }
+      },
+          },
+        }
+      </script>
+<style>
+        .surface-glow {
+            background: linear-gradient(135deg, rgba(0,229,255,0.05) 0%, rgba(0,80,238,0.05) 100%);
+            box-shadow: inset 0 0 0 1px rgba(255,255,255,0.1);
+            backdrop-filter: blur(20px);
+            -webkit-backdrop-filter: blur(20px);
+        }
+        
+        .electric-flow {
+            background: linear-gradient(90deg, #0050ee 0%, #00e5ff 100%);
+        }
+        
+        .glass-card {
+            background: rgba(34, 42, 61, 0.4);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            backdrop-filter: blur(12px);
+            -webkit-backdrop-filter: blur(12px);
+        }
+
+        .skeleton {
+            background: linear-gradient(90deg, rgba(255,255,255,0.05) 25%, rgba(255,255,255,0.1) 50%, rgba(255,255,255,0.05) 75%);
+            background-size: 200% 100%;
+            animation: loading 1.5s infinite;
+        }
+
+        @keyframes loading {
+            0% {
+                background-position: 200% 0;
+            }
+            100% {
+                background-position: -200% 0;
+            }
+        }
+        
+        /* Hide scrollbar for clean horizontal scroll */
+        .no-scrollbar::-webkit-scrollbar {
+            display: none;
+        }
+        .no-scrollbar {
+            -ms-overflow-style: none;
+            scrollbar-width: none;
+        }
+    </style>
+<style>
+    body {
+      min-height: max(884px, 100dvh);
+    }
+  </style>
+  </head>
+<body class="bg-background text-on-background font-body-md text-body-md antialiased min-h-screen flex flex-col pt-16 pb-24 md:pb-0 md:pt-20">
+<!-- TopAppBar -->
+<header class="fixed top-0 w-full z-50 bg-background/80 dark:bg-background/80 backdrop-blur-xl border-b border-white/10 dark:border-outline-variant/20 shadow-[0_0_20px_rgba(0,229,255,0.1)] transition-transform duration-300" id="top-bar">
+<div class="flex justify-between items-center px-container-margin h-16 w-full max-w-screen-xl mx-auto">
+<div class="flex items-center gap-4">
+<div class="w-10 h-10 rounded-full bg-surface-variant flex items-center justify-center overflow-hidden border border-outline-variant/30">
+<img alt="User Profile Avatar" class="w-full h-full object-cover" src="https://lh3.googleusercontent.com/aida-public/AB6AXuAU2p_ph_ZM8vFUE7WM15twmYGAfmcX8fkxLglb5xTJWsHssJe5MxiWB4QzP2itBjIG2R2kwBVpcYzRyBnb4yqQIWMS93B6YJzht_HLPheziCv1bFj40NGAhuqQTuRklYP-aoKxKMy9-rCwQjGU-VPmULFZ3dfYVBOpkS2BN6USS-i5Z62rD8gdpBHFciRjO3THLA_1WOKWiciqftmTMDXo4GMq2uu84Jif-zwOHbPH_LXOTtKkLON96wuSB8J7vpHD6Ootw2HmKN4"/>
+</div>
+<!-- View Toggle (Scout/Captain) -->
+<div class="hidden md:flex bg-surface-container-high rounded-full p-1 border border-outline-variant/20">
+<button aria-current="page" class="px-4 py-1.5 rounded-full text-label-sm font-label-sm electric-flow text-white shadow-lg transition-all">Scout</button>
+<button class="px-4 py-1.5 rounded-full text-label-sm font-label-sm text-outline hover:text-on-surface transition-colors">Captain</button>
+</div>
+</div>
+<h1 class="font-display-lg text-headline-lg-mobile tracking-tighter text-primary dark:text-primary-fixed-dim absolute left-1/2 transform -translate-x-1/2">
+                Motakadem
+            </h1>
+<button class="text-primary dark:text-primary hover:scale-105 transition-transform duration-200 active:scale-95 ease-in-out w-10 h-10 flex items-center justify-center rounded-full bg-surface-container hover:bg-surface-variant">
+<span class="material-symbols-outlined" data-icon="settings">settings</span>
+</button>
+</div>
+</header>
+<!-- Main Content Area -->
+<main class="flex-1 w-full max-w-screen-md mx-auto px-container-margin md:px-0">
+<!-- Mobile View Toggle -->
+<div class="md:hidden flex justify-center mb-6 mt-4">
+<div class="bg-surface-container-high rounded-full p-1 border border-outline-variant/20 flex w-full max-w-xs">
+<button aria-current="page" class="flex-1 py-2 rounded-full text-label-sm font-label-sm electric-flow text-white shadow-lg transition-all">Scout View</button>
+<button class="flex-1 py-2 rounded-full text-label-sm font-label-sm text-outline hover:text-on-surface transition-colors">Captain</button>
+</div>
+</div>
+<div class="flex justify-between items-end mb-6 mt-4 md:mt-8 px-2 md:px-0">
+<div>
+<h2 class="font-title-md text-title-md text-primary-fixed mb-1">Upcoming Missions</h2>
+<p class="text-on-surface-variant font-label-sm text-label-sm uppercase tracking-widest">Coptic Parish Team</p>
+</div>
+<button class="text-primary-fixed-dim hover:text-primary flex items-center gap-1 transition-colors text-sm">
+<span class="material-symbols-outlined text-[20px]" data-icon="filter_list">filter_list</span>
+<span class="hidden md:inline font-label-sm">Filter</span>
+</button>
+</div>
+<!-- Event Feed -->
+<div class="flex flex-col gap-6 md:gap-8 pb-8">
+<!-- Event Card 1 (Active/Detailed) -->
+<article class="glass-card rounded-[1.5rem] overflow-hidden flex flex-col shadow-lg transition-all hover:shadow-[0_8px_32px_rgba(0,229,255,0.08)] group">
+<!-- Image Carousel Placeholder -->
+<div class="relative h-48 md:h-64 w-full bg-surface-container-high overflow-hidden group-hover:scale-[1.02] transition-transform duration-500 ease-out">
+<img alt="Event Image" class="w-full h-full object-cover" data-alt="A highly detailed cinematic shot of a dense, misty pine forest at dawn. The scene is illuminated by piercing rays of cool, cyan-tinted morning light filtering through the canopy, creating a moody, exploratory atmosphere. The overall color palette is dominated by deep tech blues, dark slate greens, and bright cyan highlights, matching a modern glassmorphism UI aesthetic. The mood is adventurous and mysterious." src="https://lh3.googleusercontent.com/aida-public/AB6AXuAgoCN6I5HFc_dp2yZIpLVK_wWUYLcxEFo6Go2RbipXX_BbhVlDJy55fHJokFYz6ksD7QAdkeO3HiJ0GlmhFk9dF9iRqaXjeo3CiSvB7JkkhgxXZ0IaVsHbitgfvI_iR3D2Xrk-iznqCtiWPEFMA4OMj4q3OmVrrRdfGu-097W1U3z6Fa_4QK_qKzrqMQNRa7b99bhqdMugIbFn5bUgz-1ByFF01NlRGWySPqTmWYEHgbU_aPw1_HfwRTZERFoVdK67W6z3Y3JSUD0"/>
+<div class="absolute inset-0 bg-gradient-to-t from-background via-transparent to-transparent opacity-80"></div>
+<!-- Top Badges -->
+<div class="absolute top-4 left-4 flex gap-2">
+<span class="bg-primary/20 backdrop-blur-md text-primary-fixed border border-primary/30 px-3 py-1 rounded-full font-label-sm text-label-sm flex items-center gap-1">
+<span class="material-symbols-outlined text-[14px]" data-icon="local_fire_department">local_fire_department</span> High Priority
+                        </span>
+</div>
+<!-- Carousel Indicators -->
+<div class="absolute bottom-4 left-1/2 transform -translate-x-1/2 flex gap-1.5">
+<div class="w-2 h-2 rounded-full bg-white shadow-glow"></div>
+<div class="w-2 h-2 rounded-full bg-white/30"></div>
+<div class="w-2 h-2 rounded-full bg-white/30"></div>
+</div>
+</div>
+<div class="p-6 flex flex-col gap-5">
+<!-- Header Info -->
+<div>
+<div class="flex justify-between items-start mb-2">
+<h3 class="font-title-md text-title-md text-on-surface">Wilderness Survival Training</h3>
+<div class="bg-secondary-container/20 text-primary-container px-3 py-1 rounded-lg border border-secondary-container/30 text-center min-w-[60px]">
+<span class="block font-label-sm text-[10px] uppercase text-outline">Oct</span>
+<span class="block font-title-md font-bold leading-none">24</span>
+</div>
+</div>
+<div class="flex items-center gap-4 text-on-surface-variant text-sm">
+<div class="flex items-center gap-1.5">
+<span class="material-symbols-outlined text-[18px] text-primary" data-icon="schedule">schedule</span>
+                                08:00 AM - 14:00 PM
+                            </div>
+<div class="flex items-center gap-1.5">
+<span class="material-symbols-outlined text-[18px] text-primary" data-icon="location_on">location_on</span>
+                                North Woods
+                            </div>
+</div>
+</div>
+<!-- Divider -->
+<div class="h-px w-full bg-outline-variant/30"></div>
+<!-- Prerequisites -->
+<div>
+<h4 class="font-label-sm text-label-sm text-outline uppercase tracking-wider mb-3">Required Gear</h4>
+<div class="flex flex-wrap gap-2">
+<div class="bg-surface-variant/50 border border-outline-variant/50 px-3 py-1.5 rounded-md flex items-center gap-2">
+<span class="material-symbols-outlined text-[16px] text-secondary" data-icon="checkroom">checkroom</span>
+<span class="text-sm">Full Uniform</span>
+</div>
+<div class="bg-surface-variant/50 border border-outline-variant/50 px-3 py-1.5 rounded-md flex items-center gap-2">
+<span class="material-symbols-outlined text-[16px] text-secondary" data-icon="menu_book">menu_book</span>
+<span class="text-sm">Notebook &amp; Pen</span>
+</div>
+<div class="bg-surface-variant/50 border border-outline-variant/50 px-3 py-1.5 rounded-md flex items-center gap-2">
+<span class="material-symbols-outlined text-[16px] text-secondary" data-icon="water_drop">water_drop</span>
+<span class="text-sm">Water Canteen</span>
+</div>
+</div>
+</div>
+<p class="text-on-surface-variant text-sm leading-relaxed border-l-2 border-primary-container/30 pl-3">
+                        "Focus on fire-starting techniques and emergency shelter building. Ensure all gear is waterproofed before arrival."
+                    </p>
+<!-- Actions -->
+<div class="flex flex-col gap-3 mt-2">
+<!-- RSVP Toggles -->
+<div class="flex gap-2 w-full">
+<button class="flex-1 py-3 rounded-xl bg-surface-container hover:bg-surface-variant border border-outline-variant/30 text-on-surface font-title-md text-sm transition-all flex items-center justify-center gap-2 active:scale-95">
+<span class="material-symbols-outlined text-[20px]" data-icon="close">close</span>
+                                Can't Make It
+                            </button>
+<button class="flex-1 py-3 rounded-xl electric-flow text-white font-title-md text-sm shadow-[0_0_15px_rgba(0,229,255,0.3)] hover:shadow-[0_0_25px_rgba(0,229,255,0.5)] transition-all hover:scale-[1.02] active:scale-95 flex items-center justify-center gap-2">
+<span class="material-symbols-outlined text-[20px]" data-icon="check">check</span>
+                                I'm Going
+                            </button>
+</div>
+<button class="w-full py-2.5 rounded-xl bg-transparent border border-outline-variant text-primary hover:bg-primary/10 transition-colors font-title-md text-sm flex items-center justify-center gap-2">
+<span class="material-symbols-outlined text-[18px]" data-icon="forum">forum</span>
+                            Contact Leader
+                        </button>
+</div>
+</div>
+</article>
+<!-- Event Card 2 (Pending State) -->
+<article class="glass-card rounded-[1.5rem] overflow-hidden flex flex-col shadow-lg transition-all hover:shadow-[0_8px_32px_rgba(0,229,255,0.08)] group opacity-90">
+<div class="p-6 flex flex-col gap-4">
+<div class="flex justify-between items-start">
+<div>
+<span class="bg-surface-variant/50 text-outline px-2 py-0.5 rounded font-label-sm text-[10px] uppercase mb-2 inline-block">Next Week</span>
+<h3 class="font-title-md text-title-md text-on-surface">Community Service: Park Cleanup</h3>
+<div class="flex items-center gap-4 text-on-surface-variant text-sm mt-1">
+<div class="flex items-center gap-1.5">
+<span class="material-symbols-outlined text-[16px]" data-icon="event">event</span>
+                                    Nov 02
+                                </div>
+<div class="flex items-center gap-1.5">
+<span class="material-symbols-outlined text-[16px]" data-icon="schedule">schedule</span>
+                                    10:00 AM
+                                </div>
+</div>
+</div>
+</div>
+<div class="flex gap-2 w-full mt-2">
+<button class="flex-1 py-2.5 rounded-lg bg-surface-container border border-outline-variant/30 text-on-surface text-sm transition-all hover:bg-surface-variant active:scale-95">Decline</button>
+<button class="flex-1 py-2.5 rounded-lg bg-primary-container/10 border border-primary-container/30 text-primary-container text-sm transition-all hover:bg-primary-container/20 active:scale-95">Accept Mission</button>
+</div>
+</div>
+</article>
+<!-- Skeleton Loader Card -->
+<article class="glass-card rounded-[1.5rem] p-6 flex flex-col gap-4">
+<div class="flex justify-between items-start w-full">
+<div class="w-2/3">
+<div class="h-6 skeleton rounded-md w-full mb-3"></div>
+<div class="flex gap-3">
+<div class="h-4 skeleton rounded-md w-24"></div>
+<div class="h-4 skeleton rounded-md w-32"></div>
+</div>
+</div>
+<div class="w-12 h-14 skeleton rounded-lg"></div>
+</div>
+<div class="h-px w-full bg-outline-variant/20 my-2"></div>
+<div class="flex gap-2">
+<div class="h-8 skeleton rounded-md w-24"></div>
+<div class="h-8 skeleton rounded-md w-32"></div>
+</div>
+<div class="flex gap-2 mt-4">
+<div class="h-12 skeleton rounded-xl w-1/2"></div>
+<div class="h-12 skeleton rounded-xl w-1/2"></div>
+</div>
+</article>
+</div>
+</main>
+<!-- BottomNavBar (Mobile Only) -->
+<nav class="md:hidden fixed bottom-0 w-full z-50 rounded-t-xl bg-surface-container-lowest/90 dark:bg-surface-container-lowest/90 backdrop-blur-2xl border-t border-white/10 shadow-[0_-4px_24px_rgba(0,0,0,0.4)] pb-safe pt-2">
+<div class="flex justify-around items-center px-2 py-2">
+<!-- Active Tab: Feed -->
+<button class="flex flex-col items-center justify-center bg-secondary-container/20 text-primary-container dark:text-primary-fixed rounded-full px-5 py-1.5 shadow-[0_0_15px_rgba(0,229,255,0.3)] tap-highlight-transparent active:scale-90 transition-all group">
+<span class="material-symbols-outlined text-[24px] mb-0.5" data-icon="grid_view" data-weight="fill" style="font-variation-settings: 'FILL' 1;">grid_view</span>
+<span class="font-label-sm text-label-sm">Feed</span>
+</button>
+<!-- Inactive Tabs -->
+<button class="flex flex-col items-center justify-center text-outline dark:text-outline-variant hover:text-primary transition-colors tap-highlight-transparent active:scale-90 px-3 py-1.5 group">
+<span class="material-symbols-outlined text-[24px] mb-0.5 group-hover:-translate-y-1 transition-transform" data-icon="event">event</span>
+<span class="font-label-sm text-[10px]">Events</span>
+</button>
+<button class="flex flex-col items-center justify-center text-outline dark:text-outline-variant hover:text-primary transition-colors tap-highlight-transparent active:scale-90 px-3 py-1.5 group">
+<span class="material-symbols-outlined text-[24px] mb-0.5 group-hover:-translate-y-1 transition-transform" data-icon="auto_stories">auto_stories</span>
+<span class="font-label-sm text-[10px]">Notebook</span>
+</button>
+<button class="flex flex-col items-center justify-center text-outline dark:text-outline-variant hover:text-primary transition-colors tap-highlight-transparent active:scale-90 px-3 py-1.5 group">
+<span class="material-symbols-outlined text-[24px] mb-0.5 group-hover:-translate-y-1 transition-transform" data-icon="group">group</span>
+<span class="font-label-sm text-[10px]">Roster</span>
+</button>
+<button class="flex flex-col items-center justify-center text-outline dark:text-outline-variant hover:text-primary transition-colors tap-highlight-transparent active:scale-90 px-3 py-1.5 group">
+<span class="material-symbols-outlined text-[24px] mb-0.5 group-hover:-translate-y-1 transition-transform" data-icon="person">person</span>
+<span class="font-label-sm text-[10px]">Profile</span>
+</button>
+</div>
+</nav>
+<script>
+        // Simple script to handle scroll behavior for the top bar
+        let lastScrollY = window.scrollY;
+        const topBar = document.getElementById('top-bar');
+
+        window.addEventListener('scroll', () => {
+            if (window.scrollY > lastScrollY && window.scrollY > 100) {
+                // Scrolling down - hide top bar slightly
+                topBar.style.transform = 'translateY(-100%)';
+            } else {
+                // Scrolling up - show top bar
+                topBar.style.transform = 'translateY(0)';
+            }
+            lastScrollY = window.scrollY;
+        });
+    </script>
+</body></html>

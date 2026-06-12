@@ -1,0 +1,29 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 675" role="img" aria-labelledby="title desc">
+  <title id="title">Coptic church courtyard scout training</title>
+  <desc id="desc">A stylized Coptic church courtyard with scout tents and a bright evening sky.</desc>
+  <defs>
+    <linearGradient id="sky" x1="0" x2="1" y1="0" y2="0">
+      <stop offset="0" stop-color="#12213d"/>
+      <stop offset=".55" stop-color="#0b8793"/>
+      <stop offset="1" stop-color="#00d4ff"/>
+    </linearGradient>
+    <linearGradient id="ground" x1="0" x2="1">
+      <stop offset="0" stop-color="#20321f"/>
+      <stop offset="1" stop-color="#6f5b2f"/>
+    </linearGradient>
+  </defs>
+  <rect width="1200" height="675" fill="#071226"/>
+  <rect width="1200" height="430" fill="url(#sky)"/>
+  <circle cx="1000" cy="120" r="72" fill="#ffe8a3" opacity=".95"/>
+  <path d="M110 420h270V230l135-90 135 90v190h270V260l120-80 120 80v160h40v255H70V420z" fill="#efe7d2"/>
+  <path d="M500 420V248h95v172" fill="#b43d4f"/>
+  <path d="M520 248c0-42 55-42 55 0" fill="#efe7d2"/>
+  <path d="M548 115v-55M520 88h56" stroke="#ffe8a3" stroke-width="16" stroke-linecap="round"/>
+  <path d="M1088 170v-45M1068 148h40" stroke="#ffe8a3" stroke-width="11" stroke-linecap="round"/>
+  <rect y="420" width="1200" height="255" fill="url(#ground)"/>
+  <path d="M120 578l130-126 140 126H120z" fill="#1e4d4f"/>
+  <path d="M190 578l60-58 65 58H190z" fill="#00d4ff" opacity=".35"/>
+  <path d="M820 584l118-110 128 110H820z" fill="#61472a"/>
+  <path d="M870 584l70-67 75 67H870z" fill="#d9a441" opacity=".55"/>
+  <path d="M0 600c180-70 312-70 500-15 180 52 420 38 700-22v112H0z" fill="#071226" opacity=".55"/>
+</svg>

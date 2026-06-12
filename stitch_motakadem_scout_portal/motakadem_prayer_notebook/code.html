@@ -1,0 +1,381 @@
+<!DOCTYPE html>
+
+<html class="dark" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Coptic Spiritual Follow-up Notebook</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Sora:wght@600;700;800&amp;family=Hanken+Grotesk:wght@400&amp;family=JetBrains+Mono:wght@500&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    "colors": {
+                        "inverse-primary": "#006875",
+                        "background": "#0b1326",
+                        "surface-container-high": "#222a3d",
+                        "outline": "#849396",
+                        "secondary-container": "#0050ee",
+                        "on-primary-fixed": "#001f24",
+                        "on-tertiary-fixed": "#20005f",
+                        "primary-container": "#00e5ff",
+                        "on-primary-container": "#00626e",
+                        "outline-variant": "#3b494c",
+                        "inverse-surface": "#dae2fd",
+                        "surface-bright": "#31394d",
+                        "tertiary-fixed-dim": "#cdbdff",
+                        "tertiary-fixed": "#e8deff",
+                        "on-tertiary": "#370096",
+                        "on-primary": "#00363d",
+                        "on-secondary-fixed": "#001550",
+                        "on-secondary-container": "#d4dbff",
+                        "secondary": "#b6c4ff",
+                        "on-error": "#690005",
+                        "on-error-container": "#ffdad6",
+                        "on-surface": "#dae2fd",
+                        "error-container": "#93000a",
+                        "secondary-fixed-dim": "#b6c4ff",
+                        "error": "#ffb4ab",
+                        "on-tertiary-container": "#622be5",
+                        "on-primary-fixed-variant": "#004f58",
+                        "on-background": "#dae2fd",
+                        "surface-variant": "#2d3449",
+                        "surface-container-lowest": "#060e20",
+                        "tertiary": "#f1e9ff",
+                        "on-tertiary-fixed-variant": "#4f00d0",
+                        "surface-tint": "#00daf3",
+                        "primary-fixed-dim": "#00daf3",
+                        "on-surface-variant": "#bac9cc",
+                        "inverse-on-surface": "#283044",
+                        "surface-container-highest": "#2d3449",
+                        "tertiary-container": "#d6c9ff",
+                        "primary-fixed": "#9cf0ff",
+                        "on-secondary": "#002780",
+                        "primary": "#c3f5ff",
+                        "surface-dim": "#0b1326",
+                        "secondary-fixed": "#dce1ff",
+                        "on-secondary-fixed-variant": "#003ab3",
+                        "surface-container-low": "#131b2e",
+                        "surface-container": "#171f33",
+                        "surface": "#0b1326"
+                    },
+                    "borderRadius": {
+                        "DEFAULT": "0.25rem",
+                        "lg": "0.5rem",
+                        "xl": "0.75rem",
+                        "full": "9999px"
+                    },
+                    "spacing": {
+                        "stack-md": "24px",
+                        "container-margin": "24px",
+                        "base": "8px",
+                        "stack-sm": "12px",
+                        "gutter": "16px",
+                        "stack-lg": "48px"
+                    },
+                    "fontFamily": {
+                        "label-sm": ["JetBrains Mono"],
+                        "body-lg": ["Hanken Grotesk"],
+                        "title-md": ["Sora"],
+                        "display-lg": ["Sora"],
+                        "headline-lg-mobile": ["Sora"],
+                        "headline-lg": ["Sora"],
+                        "body-md": ["Hanken Grotesk"]
+                    },
+                    "fontSize": {
+                        "label-sm": ["12px", { "lineHeight": "1.0", "letterSpacing": "0.05em", "fontWeight": "500" }],
+                        "body-lg": ["18px", { "lineHeight": "1.6", "fontWeight": "400" }],
+                        "title-md": ["20px", { "lineHeight": "1.4", "fontWeight": "600" }],
+                        "display-lg": ["48px", { "lineHeight": "1.1", "letterSpacing": "-0.02em", "fontWeight": "800" }],
+                        "headline-lg-mobile": ["24px", { "lineHeight": "1.2", "fontWeight": "700" }],
+                        "headline-lg": ["32px", { "lineHeight": "1.2", "fontWeight": "700" }],
+                        "body-md": ["16px", { "lineHeight": "1.6", "fontWeight": "400" }]
+                    }
+                }
+            }
+        }
+    </script>
+<style>
+        .glass-card {
+            background: rgba(34, 42, 61, 0.4);
+            backdrop-filter: blur(20px);
+            -webkit-backdrop-filter: blur(20px);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            box-shadow: 0 8px 32px 0 rgba(0, 0, 0, 0.37);
+        }
+        .glow-primary {
+            box-shadow: 0 0 15px rgba(0, 229, 255, 0.3);
+        }
+        .glow-text {
+            text-shadow: 0 0 10px rgba(0, 229, 255, 0.5);
+        }
+        .checkbox-custom {
+            appearance: none;
+            width: 24px;
+            height: 24px;
+            border: 2px solid theme('colors.outline');
+            border-radius: theme('borderRadius.DEFAULT');
+            background: rgba(255, 255, 255, 0.05);
+            transition: all 0.2s ease;
+            cursor: pointer;
+            position: relative;
+        }
+        .checkbox-custom:checked {
+            border-color: theme('colors.primary');
+            background: theme('colors.primary-container');
+            box-shadow: 0 0 10px rgba(0, 229, 255, 0.5);
+        }
+        .checkbox-custom:checked::after {
+            content: '';
+            position: absolute;
+            left: 7px;
+            top: 3px;
+            width: 6px;
+            height: 12px;
+            border: solid theme('colors.on-primary-container');
+            border-width: 0 2px 2px 0;
+            transform: rotate(45deg);
+        }
+        .contribution-cell {
+            width: 14px;
+            height: 14px;
+            border-radius: 2px;
+        }
+        /* Mobile safe area padding */
+        .pb-safe { padding-bottom: env(safe-area-inset-bottom, 16px); }
+    </style>
+<style>
+    body {
+      min-height: max(884px, 100dvh);
+    }
+  </style>
+  </head>
+<body class="bg-background text-on-background antialiased min-h-screen flex flex-col font-body-md text-body-md overflow-x-hidden selection:bg-primary/30 selection:text-primary">
+<!-- TopAppBar -->
+<header class="fixed top-0 w-full z-50 bg-background/80 dark:bg-background/80 backdrop-blur-xl border-b border-white/10 dark:border-outline-variant/20 shadow-[0_0_20px_rgba(0,229,255,0.1)]">
+<div class="flex justify-between items-center px-container-margin h-16 w-full max-w-screen-xl mx-auto">
+<!-- Leading Avatar -->
+<button class="flex items-center hover:scale-105 transition-transform duration-200 active:scale-95 ease-in-out">
+<img alt="User Profile Avatar" class="w-10 h-10 rounded-full border border-primary/30 object-cover" data-alt="A portrait of a young male scout wearing a neat uniform with subtle tech-inspired badges. The background is a clean, dark futuristic slate, matching the Bluish Tech aesthetic. Soft blue ambient lighting highlights his features." src="https://lh3.googleusercontent.com/aida-public/AB6AXuDXGoziuNJEfo8izXXjKsnHjOXKF_QWYLTUEmgM3YzPeaZiL8iV_s6J926P-U7KNcNyhb7c1Glbad6Vhmnu7jeMOjPoP6Eax5nKzWhtnDzf5B2Xmb11nOEETaj25F-ugEk9F8dto0RumUrW8XvQHRFcYzgKSgC7WCFIp7StYsYpg9p1vburp0hpjTVmiM69fjGUmDWX7EqfXQOhthRQexBJlFo_KRb6YgUeXP8P1lFiW1ZlCfb2UYGcxchsrvckhjEuonCZZMalYYQ"/>
+</button>
+<!-- Headline -->
+<h1 class="font-display-lg text-headline-lg-mobile tracking-tighter text-primary dark:text-primary-fixed-dim">Motakadem</h1>
+<!-- Trailing Icon -->
+<button class="text-on-surface-variant dark:text-outline hover:text-primary transition-colors hover:scale-105 duration-200 active:scale-95 ease-in-out">
+<span class="material-symbols-outlined text-2xl">settings</span>
+</button>
+</div>
+</header>
+<!-- Main Content Canvas -->
+<main class="flex-grow pt-[88px] pb-[100px] px-container-margin md:px-0 w-full max-w-screen-md mx-auto space-y-stack-md">
+<!-- Header Section -->
+<div class="text-center md:text-left md:px-container-margin mb-8">
+<h2 class="font-title-md text-title-md text-primary-fixed glow-text mb-2">Coptic Spiritual Follow-up</h2>
+<p class="font-body-md text-body-md text-on-surface-variant">Track Agpeya, Bible reading, mercy, and service habits.</p>
+</div>
+<!-- Bento Grid Layout -->
+<div class="grid grid-cols-1 md:grid-cols-12 gap-gutter md:px-container-margin">
+<!-- Daily Checklist Card (Spans full width on mobile, 7 cols on md) -->
+<div class="glass-card rounded-xl p-6 md:col-span-7 flex flex-col gap-4">
+<div class="flex items-center justify-between mb-2">
+<h3 class="font-title-md text-title-md text-primary">Coptic Spiritual Habits</h3>
+<span class="font-label-sm text-label-sm text-surface-tint px-3 py-1 bg-surface-tint/10 rounded-full">TODAY</span>
+</div>
+<!-- Interactive Checklist -->
+<div class="space-y-3">
+<!-- Agpeya -->
+<label class="flex items-center justify-between p-3 rounded-lg hover:bg-white/5 transition-colors cursor-pointer group border border-transparent hover:border-white/10">
+<div class="flex items-center gap-4">
+<span class="material-symbols-outlined text-surface-tint group-hover:scale-110 transition-transform">routine</span>
+<span class="font-body-lg text-body-lg text-on-surface">Agpeya Prayer</span>
+</div>
+<input checked="" class="checkbox-custom" type="checkbox"/>
+</label>
+<!-- Bible Reading -->
+<label class="flex items-center justify-between p-3 rounded-lg hover:bg-white/5 transition-colors cursor-pointer group border border-transparent hover:border-white/10">
+<div class="flex items-center gap-4">
+<span class="material-symbols-outlined text-surface-tint group-hover:scale-110 transition-transform">light_mode</span>
+<span class="font-body-lg text-body-lg text-on-surface">Bible Reading</span>
+</div>
+<input checked="" class="checkbox-custom" type="checkbox"/>
+</label>
+<!-- Verse of the Day -->
+<label class="flex items-center justify-between p-3 rounded-lg hover:bg-white/5 transition-colors cursor-pointer group border border-transparent hover:border-white/10">
+<div class="flex items-center gap-4">
+<span class="material-symbols-outlined text-surface-tint group-hover:scale-110 transition-transform">partly_cloudy_day</span>
+<span class="font-body-lg text-body-lg text-on-surface">Verse of the Day</span>
+</div>
+<input class="checkbox-custom" type="checkbox"/>
+</label>
+<!-- Short Reflection -->
+<label class="flex items-center justify-between p-3 rounded-lg hover:bg-white/5 transition-colors cursor-pointer group border border-transparent hover:border-white/10">
+<div class="flex items-center gap-4">
+<span class="material-symbols-outlined text-surface-tint group-hover:scale-110 transition-transform">clear_night</span>
+<span class="font-body-lg text-body-lg text-on-surface">Short Reflection</span>
+</div>
+<input class="checkbox-custom" type="checkbox"/>
+</label>
+<!-- Mercy or Service -->
+<label class="flex items-center justify-between p-3 rounded-lg hover:bg-white/5 transition-colors cursor-pointer group border border-transparent hover:border-white/10">
+<div class="flex items-center gap-4">
+<span class="material-symbols-outlined text-surface-tint group-hover:scale-110 transition-transform">mode_night</span>
+<span class="font-body-lg text-body-lg text-on-surface">Mercy or Service</span>
+</div>
+<input class="checkbox-custom" type="checkbox"/>
+</label>
+</div>
+</div>
+<!-- Side Widgets (Spans full width on mobile, 5 cols on md) -->
+<div class="flex flex-col gap-gutter md:col-span-5">
+<!-- Additional Coptic Practices -->
+<div class="glass-card rounded-xl p-6 flex-grow flex flex-col justify-center">
+<h3 class="font-title-md text-title-md text-primary mb-4">Other Devotions</h3>
+<div class="space-y-4">
+<!-- Bible Reading Toggle -->
+<div class="flex items-center justify-between">
+<div class="flex items-center gap-3">
+<div class="w-10 h-10 rounded-full bg-secondary-container/20 flex items-center justify-center text-primary-container">
+<span class="material-symbols-outlined text-xl">menu_book</span>
+</div>
+<div>
+<p class="font-body-md text-body-md font-semibold text-on-surface">Read Bible</p>
+<p class="font-label-sm text-label-sm text-on-surface-variant">A chapter or short passage</p>
+</div>
+</div>
+<!-- Toggle Switch -->
+<label class="relative inline-flex items-center cursor-pointer">
+<input checked="" class="sr-only peer" type="checkbox" value=""/>
+<div class="w-11 h-6 bg-surface-bright rounded-full peer peer-checked:after:translate-x-full after:content-[''] after:absolute after:top-[2px] after:left-[2px] after:bg-white after:rounded-full after:h-5 after:w-5 after:transition-all peer-checked:bg-primary-container glow-primary shadow-inner border border-outline-variant/30"></div>
+</label>
+</div>
+<!-- Mercy Service Toggle -->
+<div class="flex items-center justify-between">
+<div class="flex items-center gap-3">
+<div class="w-10 h-10 rounded-full bg-secondary-container/20 flex items-center justify-center text-primary-container">
+<span class="material-symbols-outlined text-xl">volunteer_activism</span>
+</div>
+<div>
+<p class="font-body-md text-body-md font-semibold text-on-surface">Mercy or Service</p>
+<p class="font-label-sm text-label-sm text-on-surface-variant">A real act of help</p>
+</div>
+</div>
+<!-- Toggle Switch -->
+<label class="relative inline-flex items-center cursor-pointer">
+<input class="sr-only peer" type="checkbox" value=""/>
+<div class="w-11 h-6 bg-surface-bright rounded-full peer peer-checked:after:translate-x-full after:content-[''] after:absolute after:top-[2px] after:left-[2px] after:bg-white after:rounded-full after:h-5 after:w-5 after:transition-all peer-checked:bg-primary-container shadow-inner border border-outline-variant/30"></div>
+</label>
+</div>
+</div>
+</div>
+<!-- Gamified Progress / Streak -->
+<div class="glass-card rounded-xl p-6 relative overflow-hidden">
+<!-- Background subtle graphic -->
+<div class="absolute -right-4 -bottom-4 opacity-10 pointer-events-none">
+<span class="material-symbols-outlined" style="font-size: 100px;">local_fire_department</span>
+</div>
+<h3 class="font-title-md text-title-md text-primary mb-2 relative z-10">Current Streak</h3>
+<div class="flex items-baseline gap-2 mb-4 relative z-10">
+<span class="font-display-lg text-display-lg text-white">12</span>
+<span class="font-body-md text-body-md text-on-surface-variant">Days</span>
+</div>
+<!-- Progress Bar -->
+<div class="w-full bg-surface-bright rounded-full h-3 mb-2 border border-outline-variant/30 relative z-10 overflow-hidden">
+<div class="bg-gradient-to-r from-secondary-container to-primary-container h-3 rounded-full glow-primary" style="width: 40%"></div>
+</div>
+<p class="font-label-sm text-label-sm text-on-surface-variant text-right relative z-10">30 days to next badge</p>
+</div>
+</div>
+<!-- Streak Contribution Graph (Spans full width) -->
+<div class="glass-card rounded-xl p-6 md:col-span-12 overflow-x-auto">
+<div class="flex justify-between items-center mb-4 min-w-[300px]">
+<h3 class="font-title-md text-title-md text-primary">Monthly Consistency</h3>
+<div class="flex items-center gap-2 font-label-sm text-label-sm text-on-surface-variant">
+<span>Less</span>
+<div class="flex gap-1">
+<div class="contribution-cell bg-surface-bright/50"></div>
+<div class="contribution-cell bg-secondary-container/40"></div>
+<div class="contribution-cell bg-secondary-container/80"></div>
+<div class="contribution-cell bg-primary-container/80 glow-primary"></div>
+</div>
+<span>More</span>
+</div>
+</div>
+<!-- Mockup GitHub-style grid (last ~4 weeks) -->
+<div class="flex gap-1 min-w-max pb-2">
+<!-- Column 1 -->
+<div class="flex flex-col gap-1">
+<div class="contribution-cell bg-secondary-container/80"></div>
+<div class="contribution-cell bg-surface-bright/50"></div>
+<div class="contribution-cell bg-secondary-container/40"></div>
+<div class="contribution-cell bg-secondary-container/80"></div>
+<div class="contribution-cell bg-primary-container/80 glow-primary"></div>
+<div class="contribution-cell bg-secondary-container/40"></div>
+<div class="contribution-cell bg-surface-bright/50"></div>
+</div>
+<!-- Column 2 -->
+<div class="flex flex-col gap-1">
+<div class="contribution-cell bg-secondary-container/80"></div>
+<div class="contribution-cell bg-secondary-container/80"></div>
+<div class="contribution-cell bg-primary-container/80 glow-primary"></div>
+<div class="contribution-cell bg-secondary-container/80"></div>
+<div class="contribution-cell bg-secondary-container/40"></div>
+<div class="contribution-cell bg-surface-bright/50"></div>
+<div class="contribution-cell bg-secondary-container/40"></div>
+</div>
+<!-- Column 3 -->
+<div class="flex flex-col gap-1">
+<div class="contribution-cell bg-primary-container/80 glow-primary"></div>
+<div class="contribution-cell bg-primary-container/80 glow-primary"></div>
+<div class="contribution-cell bg-secondary-container/80"></div>
+<div class="contribution-cell bg-surface-bright/50"></div>
+<div class="contribution-cell bg-secondary-container/40"></div>
+<div class="contribution-cell bg-secondary-container/80"></div>
+<div class="contribution-cell bg-primary-container/80 glow-primary"></div>
+</div>
+<!-- Column 4 (Current Week) -->
+<div class="flex flex-col gap-1">
+<div class="contribution-cell bg-secondary-container/80"></div>
+<div class="contribution-cell bg-primary-container/80 glow-primary"></div>
+<!-- Today (pulsing) -->
+<div class="contribution-cell bg-primary-container animate-pulse shadow-[0_0_8px_rgba(0,229,255,0.8)] border border-white"></div>
+<div class="contribution-cell bg-surface-bright/20 border border-outline-variant/30"></div>
+<div class="contribution-cell bg-surface-bright/20 border border-outline-variant/30"></div>
+<div class="contribution-cell bg-surface-bright/20 border border-outline-variant/30"></div>
+<div class="contribution-cell bg-surface-bright/20 border border-outline-variant/30"></div>
+</div>
+</div>
+</div>
+</div>
+</main>
+<!-- BottomNavBar (Mobile Shell) -->
+<nav class="md:hidden fixed bottom-0 left-0 w-full flex justify-around items-center px-4 py-3 pb-safe bg-surface-container-lowest/90 dark:bg-surface-container-lowest/90 backdrop-blur-2xl rounded-t-xl z-50 shadow-[0_-4px_24px_rgba(0,0,0,0.4)]">
+<!-- Feed (Inactive) -->
+<a class="flex flex-col items-center justify-center text-outline dark:text-outline-variant hover:text-primary transition-colors tap-highlight-transparent active:scale-90 w-16" href="#">
+<span class="material-symbols-outlined mb-1">grid_view</span>
+<span class="font-label-sm text-label-sm">Feed</span>
+</a>
+<!-- Events (Inactive) -->
+<a class="flex flex-col items-center justify-center text-outline dark:text-outline-variant hover:text-primary transition-colors tap-highlight-transparent active:scale-90 w-16" href="#">
+<span class="material-symbols-outlined mb-1">event</span>
+<span class="font-label-sm text-label-sm">Events</span>
+</a>
+<!-- Notebook (Active) -->
+<a class="flex flex-col items-center justify-center bg-secondary-container/20 text-primary-container dark:text-primary-fixed rounded-full px-4 py-1 shadow-[0_0_15px_rgba(0,229,255,0.3)] hover:text-primary transition-colors tap-highlight-transparent active:scale-90" href="#">
+<span class="material-symbols-outlined mb-1" style="font-variation-settings: 'FILL' 1;">auto_stories</span>
+<span class="font-label-sm text-label-sm">Notebook</span>
+</a>
+<!-- Roster (Inactive) -->
+<a class="flex flex-col items-center justify-center text-outline dark:text-outline-variant hover:text-primary transition-colors tap-highlight-transparent active:scale-90 w-16" href="#">
+<span class="material-symbols-outlined mb-1">group</span>
+<span class="font-label-sm text-label-sm">Roster</span>
+</a>
+<!-- Profile (Inactive) -->
+<a class="flex flex-col items-center justify-center text-outline dark:text-outline-variant hover:text-primary transition-colors tap-highlight-transparent active:scale-90 w-16" href="#">
+<span class="material-symbols-outlined mb-1">person</span>
+<span class="font-label-sm text-label-sm">Profile</span>
+</a>
+</nav>
+</body></html>

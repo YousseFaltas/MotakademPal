@@ -1,0 +1,21 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 675" role="img" aria-labelledby="title desc">
+  <title id="title">Scout summer camp preparation</title>
+  <desc id="desc">Scout camp tents under olive trees with a small chapel cross in the distance.</desc>
+  <defs>
+    <linearGradient id="campSky" x1="0" x2="1">
+      <stop offset="0" stop-color="#08172d"/>
+      <stop offset=".5" stop-color="#123d4a"/>
+      <stop offset="1" stop-color="#0bd3e5"/>
+    </linearGradient>
+  </defs>
+  <rect width="1200" height="675" fill="url(#campSky)"/>
+  <circle cx="890" cy="140" r="82" fill="#fff0b8" opacity=".8"/>
+  <path d="M80 470c95-190 230-190 325 0M785 470c82-174 210-174 292 0" fill="#172c2a"/>
+  <path d="M185 455h210l-105-170-105 170z" fill="#d9a441"/>
+  <path d="M250 455l40-78 46 78H250z" fill="#6b2335"/>
+  <path d="M560 475h250L685 260 560 475z" fill="#efe7d2"/>
+  <path d="M620 475l65-108 73 108H620z" fill="#0b8793"/>
+  <path d="M1100 262v-72M1068 226h64" stroke="#ffe8a3" stroke-width="13" stroke-linecap="round"/>
+  <rect y="470" width="1200" height="205" fill="#23331f"/>
+  <path d="M0 585c190-62 390-70 610-18 170 40 382 28 590-35v143H0z" fill="#071226" opacity=".5"/>
+</svg>

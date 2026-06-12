@@ -1,0 +1,425 @@
+<!DOCTYPE html>
+
+<html class="dark" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Event Creator Studio &amp; Document Review</title>
+<!-- Google Fonts -->
+<link href="https://fonts.googleapis.com" rel="preconnect"/>
+<link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
+<link href="https://fonts.googleapis.com/css2?family=Hanken+Grotesk:wght@400;500;600;700&amp;family=JetBrains+Mono:wght@400;500;700&amp;family=Sora:wght@400;600;700;800&amp;display=swap" rel="stylesheet"/>
+<!-- Material Symbols -->
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<!-- Tailwind CSS -->
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<!-- Tailwind Config -->
+<script id="tailwind-config">
+        tailwind.config = {
+          darkMode: "class",
+          theme: {
+            extend: {
+              "colors": {
+                      "inverse-primary": "#006875",
+                      "background": "#0b1326",
+                      "surface-container-high": "#222a3d",
+                      "outline": "#849396",
+                      "secondary-container": "#0050ee",
+                      "on-primary-fixed": "#001f24",
+                      "on-tertiary-fixed": "#20005f",
+                      "primary-container": "#00e5ff",
+                      "on-primary-container": "#00626e",
+                      "outline-variant": "#3b494c",
+                      "inverse-surface": "#dae2fd",
+                      "surface-bright": "#31394d",
+                      "tertiary-fixed-dim": "#cdbdff",
+                      "tertiary-fixed": "#e8deff",
+                      "on-tertiary": "#370096",
+                      "on-primary": "#00363d",
+                      "on-secondary-fixed": "#001550",
+                      "on-secondary-container": "#d4dbff",
+                      "secondary": "#b6c4ff",
+                      "on-error": "#690005",
+                      "on-error-container": "#ffdad6",
+                      "on-surface": "#dae2fd",
+                      "error-container": "#93000a",
+                      "secondary-fixed-dim": "#b6c4ff",
+                      "error": "#ffb4ab",
+                      "on-tertiary-container": "#622be5",
+                      "on-primary-fixed-variant": "#004f58",
+                      "on-background": "#dae2fd",
+                      "surface-variant": "#2d3449",
+                      "surface-container-lowest": "#060e20",
+                      "tertiary": "#f1e9ff",
+                      "on-tertiary-fixed-variant": "#4f00d0",
+                      "surface-tint": "#00daf3",
+                      "primary-fixed-dim": "#00daf3",
+                      "on-surface-variant": "#bac9cc",
+                      "inverse-on-surface": "#283044",
+                      "surface-container-highest": "#2d3449",
+                      "tertiary-container": "#d6c9ff",
+                      "primary-fixed": "#9cf0ff",
+                      "on-secondary": "#002780",
+                      "primary": "#c3f5ff",
+                      "surface-dim": "#0b1326",
+                      "secondary-fixed": "#dce1ff",
+                      "on-secondary-fixed-variant": "#003ab3",
+                      "surface-container-low": "#131b2e",
+                      "surface-container": "#171f33",
+                      "surface": "#0b1326"
+              },
+              "borderRadius": {
+                      "DEFAULT": "0.25rem",
+                      "lg": "0.5rem",
+                      "xl": "0.75rem",
+                      "full": "9999px"
+              },
+              "spacing": {
+                      "stack-md": "24px",
+                      "container-margin": "24px",
+                      "base": "8px",
+                      "stack-sm": "12px",
+                      "gutter": "16px",
+                      "stack-lg": "48px"
+              },
+              "fontFamily": {
+                      "label-sm": ["JetBrains Mono"],
+                      "body-lg": ["Hanken Grotesk"],
+                      "title-md": ["Sora"],
+                      "display-lg": ["Sora"],
+                      "headline-lg-mobile": ["Sora"],
+                      "headline-lg": ["Sora"],
+                      "body-md": ["Hanken Grotesk"]
+              },
+              "fontSize": {
+                      "label-sm": ["12px", {"lineHeight": "1.0", "letterSpacing": "0.05em", "fontWeight": "500"}],
+                      "body-lg": ["18px", {"lineHeight": "1.6", "fontWeight": "400"}],
+                      "title-md": ["20px", {"lineHeight": "1.4", "fontWeight": "600"}],
+                      "display-lg": ["48px", {"lineHeight": "1.1", "letterSpacing": "-0.02em", "fontWeight": "800"}],
+                      "headline-lg-mobile": ["24px", {"lineHeight": "1.2", "fontWeight": "700"}],
+                      "headline-lg": ["32px", {"lineHeight": "1.2", "fontWeight": "700"}],
+                      "body-md": ["16px", {"lineHeight": "1.6", "fontWeight": "400"}]
+              }
+      },
+          },
+        }
+    </script>
+<style>
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+        }
+        .material-symbols-outlined[data-weight="fill"] {
+            font-variation-settings: 'FILL' 1;
+        }
+        /* Custom scrollbar for Kanban */
+        ::-webkit-scrollbar { height: 8px; width: 8px; }
+        ::-webkit-scrollbar-track { background: transparent; }
+        ::-webkit-scrollbar-thumb { background: #3b494c; border-radius: 4px; }
+        ::-webkit-scrollbar-thumb:hover { background: #00e5ff; }
+        
+        .shadow-glow { box-shadow: 0 0 20px rgba(0, 229, 255, 0.2); }
+    </style>
+</head>
+<body class="bg-background text-on-background min-h-screen overflow-x-hidden flex font-body-md text-body-md">
+<!-- NavigationDrawer (Desktop) -->
+<nav class="hidden md:flex flex-col h-full w-80 fixed left-0 top-0 z-[60] bg-surface-container dark:bg-surface-container-high backdrop-blur-lg border-r border-outline-variant/30 shadow-2xl py-stack-md">
+<!-- Header -->
+<div class="px-container-margin pb-stack-md mb-stack-md border-b border-outline-variant/30">
+<div class="flex items-center gap-4">
+<div class="w-12 h-12 rounded-full bg-surface-variant overflow-hidden border border-primary/30">
+<img alt="Captain User Avatar" class="w-full h-full object-cover" data-alt="A striking portrait of a confident young scout leader with a futuristic edge, illuminated by soft cyan studio lighting against a dark slate background. The image has a professional, high-energy tech aesthetic, perfectly suited for a premium dashboard avatar." src="https://lh3.googleusercontent.com/aida-public/AB6AXuAIx-dM3XGr5e5O7qDj6KAlJq6TySZg_Gjc8goWfWKjpVIr8_P5dYRFeQG2piHPrELClurPdqHRwiiTnNxab7zlLY-_U2BObGBLsq5iWeBYpfiUu6Rqd-XeHjogMtdb39Tok_KtpS3FM0lQHbvCEjMObcMZcpT__l9K0NcP5MooRzROpyiI8Yz7MHZIwIzMd6hf2UEhKPHyPDHOxCLWi0tD_c9bVlQWQ8ijuHAvYWOgKFf1NmDBusq48WJYciwT1s7GEeE8z0V5m2E"/>
+</div>
+<div>
+<h2 class="font-title-md text-title-md text-primary dark:text-primary-fixed">Leader Mina</h2>
+<p class="font-label-sm text-label-sm text-outline">Senior Scout Leader</p>
+<p class="font-label-sm text-label-sm text-surface-tint mt-1">Coptic Parish Team</p>
+</div>
+</div>
+</div>
+<!-- Nav Items -->
+<div class="flex flex-col flex-1 px-4 gap-2">
+<!-- Inactive -->
+<a class="flex items-center gap-3 px-4 py-3 text-on-surface-variant hover:bg-surface-variant/50 rounded-lg mx-2 my-1 transition-colors group" href="#">
+<span class="material-symbols-outlined text-outline group-hover:text-primary transition-colors" data-icon="dashboard">dashboard</span>
+<span class="font-title-md text-title-md text-[16px]">Captain Dashboard</span>
+</a>
+<!-- Active (Event Studio is default intent) -->
+<a class="flex items-center gap-3 px-4 py-3 bg-secondary-container text-on-secondary-container rounded-lg mx-2 my-1 font-bold shadow-glow hover:translate-x-1 transition-transform duration-300 ease-in-out" href="#">
+<span class="material-symbols-outlined" data-icon="add_circle" data-weight="fill">add_circle</span>
+<span class="font-title-md text-title-md text-[16px]">Event Studio</span>
+</a>
+<!-- Inactive -->
+<a class="flex items-center gap-3 px-4 py-3 text-on-surface-variant hover:bg-surface-variant/50 rounded-lg mx-2 my-1 transition-colors group" href="#">
+<span class="material-symbols-outlined text-outline group-hover:text-primary transition-colors" data-icon="format_list_bulleted">format_list_bulleted</span>
+<span class="font-title-md text-title-md text-[16px]">Document Review</span>
+</a>
+<!-- Inactive -->
+<div class="mt-auto">
+<a class="flex items-center gap-3 px-4 py-3 text-on-surface-variant hover:bg-surface-variant/50 rounded-lg mx-2 my-1 transition-colors group" href="#">
+<span class="material-symbols-outlined text-outline group-hover:text-primary transition-colors" data-icon="settings">settings</span>
+<span class="font-title-md text-title-md text-[16px]">Settings</span>
+</a>
+</div>
+</div>
+</nav>
+<!-- Main Content Wrapper -->
+<div class="flex-1 flex flex-col min-h-screen md:ml-80">
+<!-- TopAppBar -->
+<header class="fixed top-0 w-full md:w-[calc(100%-20rem)] z-50 bg-background/80 dark:bg-background/80 backdrop-blur-xl border-b border-white/10 dark:border-outline-variant/20 shadow-[0_0_20px_rgba(0,229,255,0.1)]">
+<div class="flex justify-between items-center px-container-margin h-16 w-full max-w-screen-xl mx-auto">
+<div class="flex items-center gap-3">
+<h1 class="font-display-lg text-headline-lg-mobile tracking-tighter text-primary dark:text-primary-fixed-dim">Motakadem</h1>
+</div>
+<div class="flex items-center gap-4">
+<button class="w-10 h-10 rounded-full bg-surface-variant/50 flex items-center justify-center hover:scale-105 transition-transform duration-200 text-primary dark:text-primary active:scale-95 ease-in-out">
+<span class="material-symbols-outlined" data-icon="settings">settings</span>
+</button>
+</div>
+</div>
+</header>
+<!-- Main Canvas -->
+<main class="flex-1 pt-24 pb-32 px-container-margin overflow-y-auto w-full max-w-screen-xl mx-auto">
+<!-- View Toggle & Header Actions -->
+<div class="flex flex-col md:flex-row justify-between items-start md:items-center mb-stack-md gap-4">
+<div class="bg-surface-container-high p-1 rounded-xl flex items-center border border-outline-variant/30 w-full md:w-auto">
+<button class="flex-1 md:flex-none px-6 py-2 rounded-lg bg-primary-container/10 text-primary-fixed font-title-md text-[14px] shadow-glow transition-all" id="btn-studio" onclick="switchView('studio')">
+                        Event Studio
+                    </button>
+<button class="flex-1 md:flex-none px-6 py-2 rounded-lg text-on-surface-variant hover:text-on-surface font-title-md text-[14px] transition-all" id="btn-review" onclick="switchView('review')">
+                        Review Center
+                    </button>
+</div>
+<!-- Quick Action (Visible in Studio view) -->
+<button class="flex items-center gap-2 px-4 py-2 bg-surface-variant hover:bg-surface-variant/80 border border-primary/20 rounded-lg text-primary transition-all hover:scale-105 hover:shadow-glow active:scale-95" id="action-duplicate">
+<span class="material-symbols-outlined text-[18px]" data-icon="content_copy">content_copy</span>
+<span class="font-title-md text-[14px]">Duplicate Previous</span>
+</button>
+</div>
+<!-- VIEW 1: Event Creator Studio -->
+<section class="block space-y-stack-md" id="view-studio">
+<div class="grid grid-cols-1 lg:grid-cols-3 gap-gutter">
+<!-- Main Form Area -->
+<div class="lg:col-span-2 space-y-gutter">
+<!-- Image Dropzone -->
+<div class="relative bg-surface-container/50 border-2 border-dashed border-outline-variant/50 rounded-xl h-64 flex flex-col items-center justify-center hover:border-primary/50 hover:bg-primary-container/5 transition-colors group cursor-pointer overflow-hidden backdrop-blur-md">
+<div class="absolute inset-0 bg-gradient-to-br from-primary/5 to-transparent opacity-0 group-hover:opacity-100 transition-opacity"></div>
+<span class="material-symbols-outlined text-4xl text-outline group-hover:text-primary mb-3 transition-colors" data-icon="add_photo_alternate">add_photo_alternate</span>
+<p class="font-title-md text-[16px] text-on-surface-variant group-hover:text-primary-fixed">Drag &amp; Drop Cover Image</p>
+<p class="font-label-sm text-label-sm text-outline mt-2">or click to browse (16:9 recommended)</p>
+</div>
+<!-- Basic Details Card -->
+<div class="bg-surface-container/40 border border-white/10 rounded-xl p-6 backdrop-blur-xl space-y-4">
+<div>
+<label class="block font-label-sm text-label-sm text-primary mb-2">EVENT TITLE</label>
+<input class="w-full bg-background/50 border border-outline-variant rounded-lg px-4 py-3 text-on-surface font-title-md text-[16px] focus:outline-none focus:border-primary focus:ring-1 focus:ring-primary placeholder-outline/50 transition-all" placeholder="e.g., Summer Wilderness Survival" type="text"/>
+</div>
+<div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+<div>
+<label class="block font-label-sm text-label-sm text-primary mb-2">DATE &amp; TIME</label>
+<div class="flex items-center bg-background/50 border border-outline-variant rounded-lg px-4 py-3 focus-within:border-primary focus-within:ring-1 focus-within:ring-primary transition-all">
+<span class="material-symbols-outlined text-outline mr-2" data-icon="calendar_month">calendar_month</span>
+<input class="w-full bg-transparent border-none p-0 text-on-surface focus:ring-0 placeholder-outline/50" placeholder="Select Date" type="text"/>
+</div>
+</div>
+<div>
+<label class="block font-label-sm text-label-sm text-primary mb-2">LOCATION</label>
+<div class="flex items-center bg-background/50 border border-outline-variant rounded-lg px-4 py-3 focus-within:border-primary focus-within:ring-1 focus-within:ring-primary transition-all">
+<span class="material-symbols-outlined text-outline mr-2" data-icon="location_on">location_on</span>
+<input class="w-full bg-transparent border-none p-0 text-on-surface focus:ring-0 placeholder-outline/50" placeholder="Basecamp Alpha" type="text"/>
+</div>
+</div>
+</div>
+</div>
+<!-- Rich Text Area -->
+<div class="bg-surface-container/40 border border-white/10 rounded-xl overflow-hidden backdrop-blur-xl flex flex-col">
+<div class="bg-surface-variant/50 border-b border-white/10 p-2 flex items-center gap-1">
+<button class="p-2 hover:bg-surface-container rounded text-outline hover:text-primary transition-colors"><span class="material-symbols-outlined text-[18px]" data-icon="format_bold">format_bold</span></button>
+<button class="p-2 hover:bg-surface-container rounded text-outline hover:text-primary transition-colors"><span class="material-symbols-outlined text-[18px]" data-icon="format_italic">format_italic</span></button>
+<div class="w-px h-6 bg-outline-variant/50 mx-2"></div>
+<button class="p-2 hover:bg-surface-container rounded text-outline hover:text-primary transition-colors"><span class="material-symbols-outlined text-[18px]" data-icon="format_list_bulleted">format_list_bulleted</span></button>
+<button class="p-2 hover:bg-surface-container rounded text-outline hover:text-primary transition-colors"><span class="material-symbols-outlined text-[18px]" data-icon="link">link</span></button>
+</div>
+<textarea class="w-full bg-background/30 border-none p-4 text-on-surface focus:ring-0 resize-y placeholder-outline/50 font-body-md" placeholder="Describe the event objectives, requirements, and schedule..." rows="6"></textarea>
+</div>
+</div>
+<!-- Sidebar Actions (Desktop Grid Right Col) -->
+<div class="space-y-gutter">
+<div class="bg-surface-container/40 border border-white/10 rounded-xl p-6 backdrop-blur-xl flex flex-col gap-4 sticky top-24">
+<h3 class="font-title-md text-title-md text-on-surface border-b border-outline-variant/30 pb-2">Publishing</h3>
+<!-- Badges/Tags pseudo-inputs -->
+<div>
+<label class="block font-label-sm text-label-sm text-primary mb-2">TARGET RANK</label>
+<div class="flex flex-wrap gap-2">
+<span class="px-3 py-1 bg-secondary-container/20 text-secondary border border-secondary/30 rounded-full font-label-sm text-[11px]">Explorer</span>
+<span class="px-3 py-1 bg-surface-variant text-outline border border-outline-variant rounded-full font-label-sm text-[11px] cursor-pointer hover:border-primary/50">Pioneer +</span>
+</div>
+</div>
+<div class="mt-4 flex flex-col gap-3">
+<button class="w-full py-3 rounded-lg bg-gradient-to-r from-inverse-primary to-primary-container text-on-primary-container font-title-md text-[16px] font-bold shadow-glow hover:scale-[1.02] active:scale-[0.98] transition-all flex justify-center items-center gap-2">
+<span class="material-symbols-outlined" data-icon="send">send</span>
+                                    Publish Event
+                                </button>
+<button class="w-full py-3 rounded-lg bg-surface-variant/50 border border-outline-variant text-on-surface hover:bg-surface-variant transition-colors font-title-md text-[16px]">
+                                    Save as Draft
+                                </button>
+</div>
+</div>
+</div>
+</div>
+</section>
+<!-- VIEW 2: Document Review Center (Kanban) -->
+<section class="hidden h-full flex flex-col" id="view-review">
+<div class="flex-1 flex gap-6 overflow-x-auto pb-4 snap-x">
+<!-- Column: Pending -->
+<div class="flex-none w-80 md:w-96 flex flex-col bg-surface-container-low/50 rounded-xl border border-white/5 snap-start">
+<div class="p-4 border-b border-outline-variant/30 flex justify-between items-center bg-surface-container-high/50 rounded-t-xl">
+<div class="flex items-center gap-2">
+<div class="w-3 h-3 rounded-full bg-primary shadow-[0_0_10px_rgba(0,229,255,0.8)]"></div>
+<h3 class="font-title-md text-[16px] text-on-surface">Pending Review</h3>
+</div>
+<span class="bg-surface-variant px-2 py-0.5 rounded text-xs font-label-sm">3</span>
+</div>
+<div class="p-3 flex-1 overflow-y-auto space-y-3">
+<!-- Card 1 -->
+<div class="bg-surface-container/80 border border-white/10 rounded-lg p-4 backdrop-blur-md hover:bg-surface-variant/60 hover:border-primary/30 transition-all cursor-grab group">
+<div class="flex justify-between items-start mb-3">
+<div class="flex items-center gap-3">
+<div class="w-8 h-8 rounded-full bg-secondary-container overflow-hidden">
+<img alt="Scout Avatar" class="w-full h-full object-cover" data-alt="A portrait of a young scout looking determined, lit with cool futuristic cyan and deep blue tones, suitable for a high-tech app interface." src="https://lh3.googleusercontent.com/aida-public/AB6AXuDInJOmofOfGdg6QbXQSWrelCz24ZGCOli5W9igkMBWYGO6CBj5Z_Uhi4r3eFOzMAE8skUatXOxVfsoNKaLEMPqHyh5RHoK1E3kdqrFuW2QRJHrZBHiGs8hPtU-K2PSPhNQSwDVnVt1dSzQmnc7wmp5Opyj95kfSTWKq6g5EB-Ub58HsRL3SMBjJWhncA1-7tEiS4qFAYg7wh23jXg9WxHRJu9yCNlh0o84VxTc-fqm1w7rene61PINdgOsY7gaAuh5u3BZz_UpAh0"/>
+</div>
+<div>
+<p class="font-title-md text-[14px] text-on-surface group-hover:text-primary transition-colors">Tariq Y.</p>
+<p class="font-label-sm text-[10px] text-outline">Submitted 2h ago</p>
+</div>
+</div>
+<span class="material-symbols-outlined text-outline text-[18px]" data-icon="description">description</span>
+</div>
+<p class="font-body-md text-[14px] text-on-surface-variant mb-4">Medical Clearance Form - Summer Camp</p>
+<div class="flex gap-2">
+<button class="flex-1 py-1.5 rounded bg-primary-container/10 text-primary hover:bg-primary-container/20 text-xs font-title-md border border-primary/20 transition-colors">Approve</button>
+<button class="flex-1 py-1.5 rounded bg-error/10 text-error hover:bg-error/20 text-xs font-title-md border border-error/20 transition-colors">Reject</button>
+</div>
+</div>
+<!-- Card 2 -->
+<div class="bg-surface-container/80 border border-white/10 rounded-lg p-4 backdrop-blur-md hover:bg-surface-variant/60 hover:border-primary/30 transition-all cursor-grab group">
+<div class="flex justify-between items-start mb-3">
+<div class="flex items-center gap-3">
+<div class="w-8 h-8 rounded-full bg-secondary-container flex items-center justify-center text-xs font-bold text-on-secondary-container">
+                                            SA
+                                        </div>
+<div>
+<p class="font-title-md text-[14px] text-on-surface group-hover:text-primary transition-colors">Sami A.</p>
+<p class="font-label-sm text-[10px] text-outline">Submitted 5h ago</p>
+</div>
+</div>
+<span class="material-symbols-outlined text-outline text-[18px]" data-icon="verified_user">verified_user</span>
+</div>
+<p class="font-body-md text-[14px] text-on-surface-variant mb-4">Parental Consent - Climbing Wall</p>
+<div class="flex gap-2">
+<button class="flex-1 py-1.5 rounded bg-primary-container/10 text-primary hover:bg-primary-container/20 text-xs font-title-md border border-primary/20 transition-colors">Approve</button>
+<button class="flex-1 py-1.5 rounded bg-error/10 text-error hover:bg-error/20 text-xs font-title-md border border-error/20 transition-colors">Reject</button>
+</div>
+</div>
+</div>
+</div>
+<!-- Column: Approved -->
+<div class="flex-none w-80 md:w-96 flex flex-col bg-surface-container-low/50 rounded-xl border border-white/5 snap-start opacity-70 hover:opacity-100 transition-opacity">
+<div class="p-4 border-b border-outline-variant/30 flex justify-between items-center bg-surface-container-high/50 rounded-t-xl">
+<div class="flex items-center gap-2">
+<div class="w-3 h-3 rounded-full bg-secondary"></div>
+<h3 class="font-title-md text-[16px] text-on-surface">Approved</h3>
+</div>
+</div>
+<div class="p-3 flex-1 overflow-y-auto space-y-3">
+<div class="bg-surface-container/40 border border-white/5 rounded-lg p-4 flex items-center justify-between">
+<div class="flex items-center gap-3">
+<div class="w-8 h-8 rounded-full bg-surface-variant overflow-hidden opacity-50">
+<img alt="Scout" class="w-full h-full object-cover" data-alt="A small avatar image of a scout, slightly desaturated, fitting a high-tech corporate UI style." src="https://lh3.googleusercontent.com/aida-public/AB6AXuCpzulJgSsTHbMSA8uAQR5-_CdJYt_lRuyveuV-F26b63EbN-tGfwLp5T6wuiZ_VOdTMO-o9h3-0HfPA8Cckc9aPZ4d7BsnKOsN7TrlIRI4dYp-6B1Y6O5BPe-m3B47YU6hYGudYM_gSQw9kdNHc9PMI7g80q1UyPDehRNdp3jqHJRGbpnDHUBDSy-JhGKqR7rtZq3DyJSPSPcZfyL6KX4UHBx37Fy9us22y8VgLXRrEfUrHJMS0s4RC-Kb-Tqzrp30cPJFwfT2ZbE"/>
+</div>
+<div>
+<p class="font-title-md text-[14px] text-outline">Omar K.</p>
+<p class="font-label-sm text-[10px] text-outline-variant">Medical Form</p>
+</div>
+</div>
+<span class="material-symbols-outlined text-secondary text-[18px]" data-icon="check_circle">check_circle</span>
+</div>
+</div>
+</div>
+<!-- Column: Rejected -->
+<div class="flex-none w-80 md:w-96 flex flex-col bg-surface-container-low/50 rounded-xl border border-white/5 snap-start opacity-70 hover:opacity-100 transition-opacity">
+<div class="p-4 border-b border-outline-variant/30 flex justify-between items-center bg-surface-container-high/50 rounded-t-xl">
+<div class="flex items-center gap-2">
+<div class="w-3 h-3 rounded-full bg-error"></div>
+<h3 class="font-title-md text-[16px] text-on-surface">Needs Revision</h3>
+</div>
+</div>
+<div class="p-3 flex-1 overflow-y-auto">
+<!-- Empty State -->
+<div class="h-32 flex flex-col items-center justify-center border-2 border-dashed border-outline-variant/30 rounded-lg">
+<span class="material-symbols-outlined text-outline mb-2" data-icon="inbox">inbox</span>
+<p class="font-label-sm text-outline">No items here</p>
+</div>
+</div>
+</div>
+</div>
+</section>
+</main>
+</div>
+<!-- BottomNavBar (Mobile) -->
+<nav class="md:hidden fixed bottom-0 w-full z-50 rounded-t-xl bg-surface-container-lowest/90 dark:bg-surface-container-lowest/90 backdrop-blur-2xl border-t border-white/10 shadow-[0_-4px_24px_rgba(0,0,0,0.4)]">
+<div class="fixed bottom-0 left-0 w-full flex justify-around items-center px-4 py-3 pb-safe">
+<!-- Feed -->
+<a class="flex flex-col items-center justify-center text-outline dark:text-outline-variant hover:text-primary transition-colors tap-highlight-transparent active:scale-90" href="#">
+<span class="material-symbols-outlined" data-icon="grid_view">grid_view</span>
+<span class="font-label-sm text-label-sm mt-1">Feed</span>
+</a>
+<!-- Events (Active Intent equivalent for Studio) -->
+<a class="flex flex-col items-center justify-center bg-secondary-container/20 text-primary-container dark:text-primary-fixed rounded-full px-4 py-1 shadow-[0_0_15px_rgba(0,229,255,0.3)] hover:text-primary transition-colors tap-highlight-transparent active:scale-90" href="#">
+<span class="material-symbols-outlined" data-icon="event" data-weight="fill">event</span>
+<span class="font-label-sm text-label-sm mt-1">Events</span>
+</a>
+<!-- Notebook -->
+<a class="flex flex-col items-center justify-center text-outline dark:text-outline-variant hover:text-primary transition-colors tap-highlight-transparent active:scale-90" href="#">
+<span class="material-symbols-outlined" data-icon="auto_stories">auto_stories</span>
+<span class="font-label-sm text-label-sm mt-1">Notebook</span>
+</a>
+<!-- Roster -->
+<a class="flex flex-col items-center justify-center text-outline dark:text-outline-variant hover:text-primary transition-colors tap-highlight-transparent active:scale-90" href="#">
+<span class="material-symbols-outlined" data-icon="group">group</span>
+<span class="font-label-sm text-label-sm mt-1">Roster</span>
+</a>
+<!-- Profile -->
+<a class="flex flex-col items-center justify-center text-outline dark:text-outline-variant hover:text-primary transition-colors tap-highlight-transparent active:scale-90" href="#">
+<span class="material-symbols-outlined" data-icon="person">person</span>
+<span class="font-label-sm text-label-sm mt-1">Profile</span>
+</a>
+</div>
+</nav>
+<script>
+        function switchView(view) {
+            const studioView = document.getElementById('view-studio');
+            const reviewView = document.getElementById('view-review');
+            const btnStudio = document.getElementById('btn-studio');
+            const btnReview = document.getElementById('btn-review');
+            const actionDuplicate = document.getElementById('action-duplicate');
+
+            if (view === 'studio') {
+                studioView.classList.remove('hidden');
+                reviewView.classList.add('hidden');
+                actionDuplicate.classList.remove('hidden');
+                
+                // Update buttons
+                btnStudio.className = "flex-1 md:flex-none px-6 py-2 rounded-lg bg-primary-container/10 text-primary-fixed font-title-md text-[14px] shadow-glow transition-all";
+                btnReview.className = "flex-1 md:flex-none px-6 py-2 rounded-lg text-on-surface-variant hover:text-on-surface font-title-md text-[14px] transition-all";
+            } else {
+                studioView.classList.add('hidden');
+                reviewView.classList.remove('hidden');
+                actionDuplicate.classList.add('hidden');
+                
+                // Update buttons
+                btnReview.className = "flex-1 md:flex-none px-6 py-2 rounded-lg bg-primary-container/10 text-primary-fixed font-title-md text-[14px] shadow-glow transition-all";
+                btnStudio.className = "flex-1 md:flex-none px-6 py-2 rounded-lg text-on-surface-variant hover:text-on-surface font-title-md text-[14px] transition-all";
+            }
+        }
+    </script>
+</body></html>

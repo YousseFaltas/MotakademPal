@@ -1,0 +1,111 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  --background: 218 58% 96%;
+  --foreground: 222 47% 11%;
+  --card: 0 0% 100%;
+  --card-foreground: 222 47% 11%;
+  --popover: 0 0% 100%;
+  --popover-foreground: 222 47% 11%;
+  --primary: 187 100% 42%;
+  --primary-foreground: 218 58% 8%;
+  --secondary: 220 92% 56%;
+  --secondary-foreground: 0 0% 100%;
+  --muted: 214 30% 92%;
+  --muted-foreground: 218 13% 42%;
+  --accent: 43 68% 55%;
+  --accent-foreground: 222 47% 11%;
+  --destructive: 348 56% 48%;
+  --destructive-foreground: 0 0% 100%;
+  --border: 214 22% 84%;
+  --input: 214 22% 84%;
+  --ring: 187 100% 42%;
+  --gold: 43 68% 55%;
+  --burgundy: 348 56% 48%;
+  --olive: 83 30% 48%;
+  --radius: 0.75rem;
+  --font-ui: "Cairo", "Tajawal", "Noto Sans Arabic", "Hanken Grotesk", system-ui, sans-serif;
+  --font-display: "Sora", "Cairo", "Tajawal", system-ui, sans-serif;
+  --font-mono: "JetBrains Mono", "Cascadia Code", monospace;
+}
+
+.dark {
+  --background: 222 63% 7%;
+  --foreground: 221 85% 94%;
+  --card: 222 45% 12%;
+  --card-foreground: 221 85% 94%;
+  --popover: 222 45% 12%;
+  --popover-foreground: 221 85% 94%;
+  --primary: 187 100% 50%;
+  --primary-foreground: 218 58% 8%;
+  --secondary: 221 92% 55%;
+  --secondary-foreground: 0 0% 100%;
+  --muted: 221 30% 18%;
+  --muted-foreground: 218 17% 68%;
+  --accent: 43 70% 56%;
+  --accent-foreground: 222 47% 11%;
+  --destructive: 348 70% 60%;
+  --destructive-foreground: 0 0% 100%;
+  --border: 222 22% 23%;
+  --input: 222 22% 23%;
+  --ring: 187 100% 50%;
+  --gold: 43 70% 56%;
+  --burgundy: 348 56% 45%;
+  --olive: 83 30% 48%;
+}
+
+* {
+  border-color: hsl(var(--border));
+}
+
+html {
+  min-height: 100%;
+  background: hsl(var(--background));
+}
+
+body {
+  min-height: 100dvh;
+  background:
+    radial-gradient(circle at 18% 14%, hsl(var(--primary) / 0.16), transparent 28rem),
+    radial-gradient(circle at 82% 5%, hsl(var(--gold) / 0.12), transparent 24rem),
+    hsl(var(--background));
+  color: hsl(var(--foreground));
+  font-family: var(--font-ui);
+  text-rendering: optimizeLegibility;
+}
+
+button,
+input,
+textarea,
+select {
+  font: inherit;
+}
+
+.font-display {
+  font-family: var(--font-display);
+}
+
+.font-metric {
+  font-family: var(--font-mono);
+}
+
+.glass {
+  background: linear-gradient(145deg, hsl(var(--card) / 0.82), hsl(var(--muted) / 0.42));
+  border: 1px solid hsl(var(--border) / 0.75);
+  box-shadow: 0 18px 54px hsl(222 70% 3% / 0.28);
+  backdrop-filter: blur(18px);
+}
+
+.electric-flow {
+  background: linear-gradient(90deg, hsl(var(--secondary)) 0%, hsl(var(--primary)) 100%);
+}
+
+.safe-bottom {
+  padding-bottom: max(0.75rem, env(safe-area-inset-bottom));
+}
+
+[dir="rtl"] .mirror-rtl {
+  transform: scaleX(-1);
+}
